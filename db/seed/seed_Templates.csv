@@ -1,0 +1,10 @@
+NodeID,NodeType,Title,DocxFilename
+TM-0002,Template,Micro Award Template,TM-0002.docx
+TM-0000,Template,Micro Requisition Template,TM-0000.docx
+TM-0001,Template,Micro Solicitation Template,TM-0001.docx
+TM-0005,Template,Standard Award Template,TM-0005.docx
+TM-0003,Template,Standard Requisition Template,TM-0003.docx
+TM-0004,Template,Standard Solicitation Template,TM-0004.docx
+TM-0008,Template,Complex Award Template,TM-0008.docx
+TM-0006,Template,Complex Requisition Template,TM-0006.docx
+TM-0007,Template,Complex Solicitation Template,TM-0007.docx

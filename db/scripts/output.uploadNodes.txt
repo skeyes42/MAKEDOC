@@ -1,0 +1,554 @@
+Found 109 nodes to load.
+Found 109 DOCX files in folder.
+
+Count of nodes to load: 109
+
+Processing: DEI-0000
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0000.docx
+  Read 13915 bytes
+  [OK] Content saved
+
+Processing: DEI-0002
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0002.docx
+  Read 14157 bytes
+  [OK] Content saved
+
+Processing: DEI-0004
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0004.docx
+  Read 14261 bytes
+  [OK] Content saved
+
+Processing: DEI-0006
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0006.docx
+  Read 14153 bytes
+  [OK] Content saved
+
+Processing: DEI-0008
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0008.docx
+  Read 14122 bytes
+  [OK] Content saved
+
+Processing: DEI-0010
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0010.docx
+  Read 14137 bytes
+  [OK] Content saved
+
+Processing: DEI-0012
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0012.docx
+  Read 14275 bytes
+  [OK] Content saved
+
+Processing: DEI-0014
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0014.docx
+  Read 14258 bytes
+  [OK] Content saved
+
+Processing: DEI-0016
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/dei/DEI-0016.docx
+  Read 14269 bytes
+  [OK] Content saved
+
+Processing: HAZ-0000
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0000.docx
+  Read 13989 bytes
+  [OK] Content saved
+
+Processing: HAZ-0002
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0002.docx
+  Read 14471 bytes
+  [OK] Content saved
+
+Processing: HAZ-0004
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0004.docx
+  Read 14462 bytes
+  [OK] Content saved
+
+Processing: HAZ-0006
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0006.docx
+  Read 14515 bytes
+  [OK] Content saved
+
+Processing: HAZ-0008
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0008.docx
+  Read 14419 bytes
+  [OK] Content saved
+
+Processing: HAZ-0010
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0010.docx
+  Read 14520 bytes
+  [OK] Content saved
+
+Processing: HAZ-0012
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0012.docx
+  Read 14493 bytes
+  [OK] Content saved
+
+Processing: HAZ-0014
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0014.docx
+  Read 14478 bytes
+  [OK] Content saved
+
+Processing: HAZ-0016
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0016.docx
+  Read 14439 bytes
+  [OK] Content saved
+
+Processing: HAZ-0018
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0018.docx
+  Read 14464 bytes
+  [OK] Content saved
+
+Processing: HAZ-0020
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0020.docx
+  Read 14423 bytes
+  [OK] Content saved
+
+Processing: HAZ-0022
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/hazmat/HAZ-0022.docx
+  Read 14447 bytes
+  [OK] Content saved
+
+Processing: NL-0163
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0163.docx
+  Read 20972 bytes
+  [OK] Content saved
+
+Processing: NL-0164
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0164.docx
+  Read 21431 bytes
+  [OK] Content saved
+
+Processing: NL-0165
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0165.docx
+  Read 21402 bytes
+  [OK] Content saved
+
+Processing: NL-0166
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0166.docx
+  Read 13971 bytes
+  [OK] Content saved
+
+Processing: NL-0167
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0167.docx
+  Read 13987 bytes
+  [OK] Content saved
+
+Processing: NL-0168
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0168.docx
+  Read 14138 bytes
+  [OK] Content saved
+
+Processing: NL-0169
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0169.docx
+  Read 21451 bytes
+  [OK] Content saved
+
+Processing: NL-0170
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0170.docx
+  Read 14202 bytes
+  [OK] Content saved
+
+Processing: NL-0171
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0171.docx
+  Read 21317 bytes
+  [OK] Content saved
+
+Processing: NL-0172
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0172.docx
+  Read 14514 bytes
+  [OK] Content saved
+
+Processing: NL-0173
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0173.docx
+  Read 14344 bytes
+  [OK] Content saved
+
+Processing: NL-0174
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0174.docx
+  Read 14481 bytes
+  [OK] Content saved
+
+Processing: NL-0175
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0175.docx
+  Read 14069 bytes
+  [OK] Content saved
+
+Processing: NL-0176
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0176.docx
+  Read 14077 bytes
+  [OK] Content saved
+
+Processing: NL-0177
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/awd/NL-0177.docx
+  Read 14162 bytes
+  [OK] Content saved
+
+Processing: NL-0116
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0116.docx
+  Read 20844 bytes
+  [OK] Content saved
+
+Processing: NL-0117
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0117.docx
+  Read 21284 bytes
+  [OK] Content saved
+
+Processing: NL-0118
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0118.docx
+  Read 14054 bytes
+  [OK] Content saved
+
+Processing: NL-0119
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0119.docx
+  Read 21682 bytes
+  [OK] Content saved
+
+Processing: NL-0120
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0120.docx
+  Read 14070 bytes
+  [OK] Content saved
+
+Processing: NL-0121
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0121.docx
+  Read 14195 bytes
+  [OK] Content saved
+
+Processing: NL-0122
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0122.docx
+  Read 14384 bytes
+  [OK] Content saved
+
+Processing: NL-0123
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0123.docx
+  Read 14181 bytes
+  [OK] Content saved
+
+Processing: NL-0124
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0124.docx
+  Read 21207 bytes
+  [OK] Content saved
+
+Processing: NL-0125
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0125.docx
+  Read 14080 bytes
+  [OK] Content saved
+
+Processing: NL-0126
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0126.docx
+  Read 14066 bytes
+  [OK] Content saved
+
+Processing: NL-0127
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/req/NL-0127.docx
+  Read 13991 bytes
+  [OK] Content saved
+
+Processing: NL-0139
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0139.docx
+  Read 20978 bytes
+  [OK] Content saved
+
+Processing: NL-0140
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0140.docx
+  Read 14149 bytes
+  [OK] Content saved
+
+Processing: NL-0141
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0141.docx
+  Read 15518 bytes
+  [OK] Content saved
+
+Processing: NL-0142
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0142.docx
+  Read 16308 bytes
+  [OK] Content saved
+
+Processing: NL-0145
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0145.docx
+  Read 15325 bytes
+  [OK] Content saved
+
+Processing: NL-0146
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0146.docx
+  Read 15353 bytes
+  [OK] Content saved
+
+Processing: NL-0147
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0147.docx
+  Read 15220 bytes
+  [OK] Content saved
+
+Processing: NL-0148
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0148.docx
+  Read 15472 bytes
+  [OK] Content saved
+
+Processing: NL-0149
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0149.docx
+  Read 14492 bytes
+  [OK] Content saved
+
+Processing: NL-0150
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/cmplx/sol/NL-0150.docx
+  Read 15295 bytes
+  [OK] Content saved
+
+Processing: NL-0025
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0025.docx
+  Read 20915 bytes
+  [OK] Content saved
+
+Processing: NL-0026
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0026.docx
+  Read 21167 bytes
+  [OK] Content saved
+
+Processing: NL-0027
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0027.docx
+  Read 14268 bytes
+  [OK] Content saved
+
+Processing: NL-0028
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0028.docx
+  Read 14028 bytes
+  [OK] Content saved
+
+Processing: NL-0029
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0029.docx
+  Read 13923 bytes
+  [OK] Content saved
+
+Processing: NL-0030
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0030.docx
+  Read 13950 bytes
+  [OK] Content saved
+
+Processing: NL-0031
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/awd/NL-0031.docx
+  Read 13916 bytes
+  [OK] Content saved
+
+Processing: NL-0001
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0001.docx
+  Read 22654 bytes
+  [OK] Content saved
+
+Processing: NL-0002
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0002.docx
+  Read 21590 bytes
+  [OK] Content saved
+
+Processing: NL-0003
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0003.docx
+  Read 14032 bytes
+  [OK] Content saved
+
+Processing: NL-0004
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0004.docx
+  Read 14187 bytes
+  [OK] Content saved
+
+Processing: NL-0005
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0005.docx
+  Read 21117 bytes
+  [OK] Content saved
+
+Processing: NL-0006
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0006.docx
+  Read 14085 bytes
+  [OK] Content saved
+
+Processing: NL-0007
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/req/NL-0007.docx
+  Read 21332 bytes
+  [OK] Content saved
+
+Processing: NL-0014
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0014.docx
+  Read 20998 bytes
+  [OK] Content saved
+
+Processing: NL-0015
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0015.docx
+  Read 21236 bytes
+  [OK] Content saved
+
+Processing: NL-0016
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0016.docx
+  Read 15516 bytes
+  [OK] Content saved
+
+Processing: NL-0017
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0017.docx
+  Read 14001 bytes
+  [OK] Content saved
+
+Processing: NL-0018
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0018.docx
+  Read 14000 bytes
+  [OK] Content saved
+
+Processing: NL-0019
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/micro/sol/NL-0019.docx
+  Read 13928 bytes
+  [OK] Content saved
+
+Processing: NL-0094
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0094.docx
+  Read 20896 bytes
+  [OK] Content saved
+
+Processing: NL-0095
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0095.docx
+  Read 21061 bytes
+  [OK] Content saved
+
+Processing: NL-0096
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0096.docx
+  Read 15240 bytes
+  [OK] Content saved
+
+Processing: NL-0097
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0097.docx
+  Read 41437 bytes
+  [OK] Content saved
+
+Processing: NL-0098
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0098.docx
+  Read 22442 bytes
+  [OK] Content saved
+
+Processing: NL-0099
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0099.docx
+  Read 14057 bytes
+  [OK] Content saved
+
+Processing: NL-0102
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0102.docx
+  Read 13979 bytes
+  [OK] Content saved
+
+Processing: NL-0103
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0103.docx
+  Read 13896 bytes
+  [OK] Content saved
+
+Processing: NL-0104
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/awd/NL-0104.docx
+  Read 13978 bytes
+  [OK] Content saved
+
+Processing: NL-0038
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0038.docx
+  Read 21074 bytes
+  [OK] Content saved
+
+Processing: NL-0039
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0039.docx
+  Read 15307 bytes
+  [OK] Content saved
+
+Processing: NL-0040
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0040.docx
+  Read 15325 bytes
+  [OK] Content saved
+
+Processing: NL-0041
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0041.docx
+  Read 21277 bytes
+  [OK] Content saved
+
+Processing: NL-0042
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0042.docx
+  Read 15251 bytes
+  [OK] Content saved
+
+Processing: NL-0043
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0043.docx
+  Read 15437 bytes
+  [OK] Content saved
+
+Processing: NL-0044
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0044.docx
+  Read 15290 bytes
+  [OK] Content saved
+
+Processing: NL-0045
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0045.docx
+  Read 21585 bytes
+  [OK] Content saved
+
+Processing: NL-0046
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0046.docx
+  Read 15312 bytes
+  [OK] Content saved
+
+Processing: NL-0047
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0047.docx
+  Read 22719 bytes
+  [OK] Content saved
+
+Processing: NL-0048
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0048.docx
+  Read 15396 bytes
+  [OK] Content saved
+
+Processing: NL-0049
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0049.docx
+  Read 15363 bytes
+  [OK] Content saved
+
+Processing: NL-0050
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0050.docx
+  Read 15388 bytes
+  [OK] Content saved
+
+Processing: NL-0051
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/req/NL-0051.docx
+  Read 15368 bytes
+  [OK] Content saved
+
+Processing: NL-0065
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0065.docx
+  Read 21100 bytes
+  [OK] Content saved
+
+Processing: NL-0066
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0066.docx
+  Read 14040 bytes
+  [OK] Content saved
+
+Processing: NL-0070
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0070.docx
+  Read 21176 bytes
+  [OK] Content saved
+
+Processing: NL-0071
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0071.docx
+  Read 16036 bytes
+  [OK] Content saved
+
+Processing: NL-0073
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0073.docx
+  Read 22410 bytes
+  [OK] Content saved
+
+Processing: NL-0074
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0074.docx
+  Read 15316 bytes
+  [OK] Content saved
+
+Processing: NL-0075
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0075.docx
+  Read 15280 bytes
+  [OK] Content saved
+
+Processing: NL-0076
+  File: C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses/std/sol/NL-0076.docx
+  Read 14426 bytes
+  [OK] Content saved
+
+──────────────────────────────────────────────────
+  Loaded:    109
+  Not found: 0
+  Errors:    0

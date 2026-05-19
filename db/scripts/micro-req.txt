@@ -1,0 +1,49 @@
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\req
+
+=== NL-0001.docx ===
+No SDT fields found.
+
+=== NL-0002.docx ===
+SDT Found  Tag: DASContact
+SDT Found  Tag: DASPhone
+SDT Found  Tag: DASemail
+
+=== NL-0003.docx ===
+No SDT fields found.
+
+=== NL-0004.docx ===
+No SDT fields found.
+
+=== NL-0005.docx ===
+SDT Found  Tag: TotalCost
+
+=== NL-0006.docx ===
+No SDT fields found.
+
+=== NL-0007.docx ===
+SDT Found  Tag: RequestingOfficial
+SDT Found  Tag: RequestingDate
+SDT Found  Tag: BudgetApproval
+SDT Found  Tag: BudgetDate
+SDT Found  Tag: ProcurementApproval
+SDT Found  Tag: ProcurementDate
+
+=== NL-0008.docx ===
+No SDT fields found.
+
+=== NL-0009.docx ===
+No SDT fields found.
+
+=== NL-0010.docx ===
+No SDT fields found.
+
+=== NL-0011.docx ===
+No SDT fields found.
+
+=== NL-0012.docx ===
+No SDT fields found.
+
+=== NL-0013.docx ===
+No SDT fields found.
+
+Done.

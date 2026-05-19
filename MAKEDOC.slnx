@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MakeDoc.App/MakeDoc.App.csproj" />
+  <Project Path="MakeDoc.Core.Tests/MakeDoc.Core.Tests.csproj" />
+  <Project Path="MakeDoc.Core/MakeDoc.Core.csproj" />
+  <Project Path="MakeDoc.PlumberClient/MakeDoc.PlumberClient.csproj" />
+</Solution>

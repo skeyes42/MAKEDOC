@@ -1,0 +1,40 @@
+=== MAKEDOC Template Node Importer (batch) ===
+DatabasePath   : C:/Users/skeye/BOOK2/MAKEDOC/db/MAKEDOC.db 
+TemplatesRoot  : C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/templates 
+Manifest       : C:/Users/skeye/BOOK2/MAKEDOC/db/seed/seed_Templates.csv 
+
+[1] "----- Template manifest dataframe ----"
+   NodeID NodeType                          Title DocxFilename
+1 TM-0002 Template           Micro Award Template TM-0002.docx
+2 TM-0000 Template     Micro Requisition Template TM-0000.docx
+3 TM-0001 Template    Micro Solicitation Template TM-0001.docx
+4 TM-0005 Template        Standard Award Template TM-0005.docx
+5 TM-0003 Template  Standard Requisition Template TM-0003.docx
+6 TM-0004 Template Standard Solicitation Template TM-0004.docx
+7 TM-0008 Template         Complex Award Template TM-0008.docx
+8 TM-0006 Template   Complex Requisition Template TM-0006.docx
+9 TM-0007 Template  Complex Solicitation Template TM-0007.docx
+[1] "--------------------------------------"
+[1/9] TM-0002  <-  TM-0002.docx
+    OK: inserted 13854 bytes
+[2/9] TM-0000  <-  TM-0000.docx
+    OK: inserted 13938 bytes
+[3/9] TM-0001  <-  TM-0001.docx
+    OK: inserted 13854 bytes
+[4/9] TM-0005  <-  TM-0005.docx
+    OK: inserted 13854 bytes
+[5/9] TM-0003  <-  TM-0003.docx
+    OK: inserted 13854 bytes
+[6/9] TM-0004  <-  TM-0004.docx
+    OK: inserted 13854 bytes
+[7/9] TM-0008  <-  TM-0008.docx
+    OK: inserted 13854 bytes
+[8/9] TM-0006  <-  TM-0006.docx
+    OK: inserted 13854 bytes
+[9/9] TM-0007  <-  TM-0007.docx
+    OK: inserted 13854 bytes
+
+=== Summary ===
+Inserted : 9
+Skipped  : 0 (already in DB)
+Errors   : 0

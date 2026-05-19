@@ -1,0 +1,12 @@
+DocType,Type,Name,InclusionTags,HeaderNodeID,TemplateBlobID,Tier
+req-micro,main,Micro tier requisition,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0001,TM-0000,micro
+sol-micro,main,Micro tier solicitation,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0014,TM-0001,micro
+awd-micro,main,Micro tier award,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0025,TM-0002,micro
+req-std,main,Standard tier requisition,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0038,TM-0003,standard
+sol-std,main,Standard tier solicitation,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0065,TM-0004,standard
+awd-std,main,Standard tier award,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0094,TM-0005,standard
+req-cplx,main,Complex tier requisition,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0116,TM-0006,complex
+sol-cplx,main,Complex tier solicitation,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0139,TM-0007,complex
+awd-cplx,main,Complex tier award,"{""DEI"": ""dei"", ""HAZMAT"": ""haz""}",NL-0163,TM-0008,complex
+dei,attachment,DEI clauses,,DEI-0000,TM-0009,
+haz,attachment,HAZMAT clauses,,HAZ-0000,TM-0010,

@@ -1,0 +1,4 @@
+DROP TABLE Node;
+DROP TABLE NodeHierarchy;
+DROP TABLE DocType;
+DROP TABLE Instance;

@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph dotnet [".NET process"]
+        App[MakeDoc.AppWinForms UI]
+        Core[MakeDoc.Coreservices · assembly · fill-ins]
+        App -->|in-process method calls| Core
+    end
+
+    subgraph rproc ["R process"]
+        Plumber[R Plumber APIanalytics]
+    end
+
+    DB[(MAKEDOC.dbSQLite)]
+
+    App -->|HTTP 127.0.0.1:8000| Plumber
+    Core -->|Microsoft.Data.Sqlite| DB
+    Plumber -->|RSQLite| DB

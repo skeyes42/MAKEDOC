@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\db\\scripts\\ClauseHarvester1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D22A66B-8742-D8AC-866A-50350048D5F9}|ClauseHarvester1.csproj|c:\\users\\skeye\\book2\\makedoc\\db\\scripts\\clauseharvester1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D22A66B-8742-D8AC-866A-50350048D5F9}|ClauseHarvester1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\db\\scripts\\ClauseHarvester1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\db\\scripts\\ClauseHarvester1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAswJUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:05:03.54Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+
+DocType: req-micro (Micro tier requisition)
+----------------------------------------
+   1. NL-0001       HeaderNode            State of Northlandia
+   2. NL-0002       Clause                SECTION {SecNo} — REQUESTING AGENCY INFORMATION
+   3. NL-0003       Clause                SECTION {SecNo} — PURPOSE
+   4. NL-0004       Clause                SECTION {SecNo} — DESCRIPTION OF ITEMS
+   5. NL-0005       Clause                SECTION {SecNo} — ESTIMATED COST
+   6. NL-0006       Clause                SECTION {SecNo} — PROCUREMENT METHOD
+   7. NL-0007       Clause                SECTION {SecNo} — APPROVALS
+
+DocType: sol-micro (Micro tier solicitation)
+----------------------------------------
+   1. NL-0014       HeaderNode            State of Northlandia
+   2. NL-0015       Clause                SECTION {SecNo} — RFQ INFORMATION
+   3. NL-0016       Clause                SECTION {SecNo} — ITEMS REQUESTED
+   4. NL-0017       Clause                SECTION {SecNo} — DELIVERY REQUIREMENTS
+   5. NL-0018       Clause                SECTION {SecNo} — QUOTE SUBMISSION
+   6. NL-0019       Clause                SECTION {SecNo} — BASIS OF AWARD
+
+DocType: awd-micro (Micro tier award)
+----------------------------------------
+   1. NL-0025       HeaderNode            State of Northlandia
+   2. NL-0026       Clause                SECTION {SecNo} — PURCHASE ORDER INFORMATION
+   3. NL-0027       Clause                SECTION {SecNo} — ITEMS ORDERED
+   4. NL-0028       Clause                SECTION {SecNo} — DELIVERY
+   5. NL-0029       Clause                SECTION {SecNo} — PAYMENT
+   6. NL-0030       Clause                SECTION {SecNo} — ACCEPTANCE
+   7. NL-0031       Clause                SECTION {SecNo} — SIGNATURES
+
+DocType: req-std (Standard tier requisition)
+----------------------------------------
+   1. NL-0038       HeaderNode            State of Northlandia
+   2. NL-0041       Clause                SECTION {SECNO} — REQUISITION OVERVIEW
+   3. NL-0046       Clause                SECTION {SECNO} — REQUISITION OVERVIEW
+   4. NL-0039       Clause                SECTION {SECNO} — TECHNICAL SPECIFICATIONS
+   5. NL-0047       Clause                SECTION {SECNO} — BUDGET AND FUNDING
+   6. NL-0048       Clause                SECTION {SECNO} — PROCUREMENT METHOD AND JUSTIFICA
+   7. NL-0040       Clause                SECTION {SECNO} — DELIVERY, MILESTONES, AND TIMELI
+   8. NL-0049       Clause                SECTION {SECNO} — RISK ASSESSMENT
+   9. NL-0050       Clause                SECTION {SECNO} — COMPLIANCE AND REGULATORY REQUIR
+  10. NL-0051       Clause                SECTION {SECNO} — EVALUATION CRITERIA
+  11. NL-0042       Clause                SECTION {SECNO} — VENDOR QUALIFICATIONS
+  12. NL-0043       Clause                SECTION {SECNO} — CONTRACTUAL TERMS AND CONDITIONS
+  13. NL-0044       Clause                SECTION {SECNO} — ATTACHMENTS AND SUPPORTING DOCUM
+  14. NL-0045       Clause                SECTION {SECNO} — APPROVALS
+
+DocType: sol-std (Standard tier solicitation)
+----------------------------------------
+   1. NL-0065       HeaderNode            STATE OF NORTHLANDIA
+   2. NL-0066       Clause                SECTION {SecNo} — INTRODUCTION
+   3. NL-0071       Clause                SECTION {SecNo} — DESCRIPTION OF GOODS
+   4. NL-0074       Clause                SECTION {SecNo} — PRICING
+   5. NL-0075       Clause                SECTION {SecNo} — EVALUATION CRITERIA
+   6. NL-0076       Clause                SECTION {SecNo} — TERMS & CONDITIONS (STANDARD TIE
+   7. NL-0070       Clause                SECTION {SecNo} — SUBMISSION INSTRUCTIONS
+
+DocType: awd-std (Standard tier award)
+----------------------------------------
+   1. NL-0094       HeaderNode            STANDARD-TIER AWARD DOCUMENT
+   2. NL-0095       Clause                SECTION {SecNo} — CONTRACT FORMATION
+   3. NL-0097       Clause                SECTION {SecNo} — CONTRACT ITEMS AND PRICING
+   4. NL-0098       Clause                SECTION {SecNo} — DELIVERY REQUIREMENTS
+   5. NL-0099       Clause                SECTION {SecNo} — SUPPLIER OBLIGATIONS
+   6. NL-0102       Clause                SECTION {SecNo} — PAYMENT
+   7. NL-0103       Clause                SECTION {SecNo} — LIABILITY
+   8. NL-0104       Clause                SECTION {SecNo} — TERMINATION
+   9. NL-0096       Clause                SECTION {SecNo} — ADDITIONAL PROVISIONS
+
+DocType: req-cplx (Complex tier requisition)
+----------------------------------------
+   1. NL-0116       HeaderNode            STATE OF NORTHLANDIA
+   2. NL-0117       Clause                SECTION {SecNo} — REQUESTING AGENCY INFORMATION
+   3. NL-0120       Clause                SECTION {SecNo} — REQUISITION PURPOSE
+   4. NL-0121       Clause                SECTION {SecNo} — JUSTIFICATION / NEED STATEMENT
+   5. NL-0122       Clause                SECTION {SecNo} — DESCRIPTION OF REQUIRED ITEMS
+   6. NL-0123       Clause                SECTION {SecNo} — ESTIMATED QUANTITIES
+   7. NL-0124       Clause                SECTION {SecNo} — FUNDING INFORMATION
+   8. NL-0125       Clause                SECTION {SecNo} — PROCUREMENT METHOD REQUESTED
+   9. NL-0126       Clause                SECTION {SecNo} — DELIVERY REQUIREMENTS
+  10. NL-0127       Clause                SECTION {SecNo} — SPECIAL REQUIREMENTS
+  11. NL-0118       Clause                SECTION {SecNo}  — ATTACHMENTS
+  12. NL-0119       Clause                SECTION {SecNo} — APPROVALS
+
+DocType: sol-cplx (Complex tier solicitation)
+----------------------------------------
+   1. NL-0139       HeaderNode            State of Northlandia
+   2. NL-0140       Clause                SECTION {SecNo} — PURPOSE
+   3. NL-0141       Clause                SECTION {SecNo} — BACKGROUND
+   4. NL-0142       Clause                SECTION {SecNo} — SCOPE OF WORK
+   5. NL-0145       Clause                SECTION {SecNo} — CONTRACT TYPE
+
+DocType: awd-cplx (Complex tier award)
+----------------------------------------
+   1. NL-0163       HeaderNode            State of NorthLandia
+   2. NL-0164       Clause                SECTION {SecNo} — PARTIES
+   3. NL-0170       Clause                SECTION {SecNo} — PURPOSE
+   4. NL-0171       Clause                SECTION {SecNo} — TERM OF CONTRACT
+   5. NL-0172       Clause                SECTION {SecNo} — CONTRACT LINE ITEMS (CLINs)
+   6. NL-0173       Clause                SECTION {SecNo} — SPECIFICATIONS
+   7. NL-0174       Clause                SECTION {SecNo} — ORDERING AND DELIVERY
+   8. NL-0175       Clause                SECTION {SecNo} — BATTERY RECYCLING PROGRAM
+   9. NL-0176       Clause                SECTION {SecNo} — CONTRACTOR QUALIFICATIONS
+  10. NL-0177       Clause                SECTION {SecNo} — PERFORMANCE STANDARDS
+  11. NL-0165       Clause                SECTION {SecNo} — CONTRACT ADMINISTRATION
+  12. NL-0166       Clause                SECTION {SecNo} — MODIFICATIONS
+  13. NL-0167       Clause                SECTION {SecNo} — TERMINATION
+  14. NL-0168       Clause                SECTION {SecNo} — ATTACHMENTS
+  15. NL-0169       Clause                SECTION {SecNo} — SIGNATURES
+
+DocType: dei (DEI clauses)
+----------------------------------------
+   1. DEI-0000      HeaderNode            DEI Special Clauses Attachment
+   2. DEI-0002      Clause                SECTION {SecNo} — WORKFORCE DIVERSITY OBLIGATIONS
+   3. DEI-0004      Clause                SECTION {SecNo} — SUBCONTRACTING INCLUSION REQUIRE
+   4. DEI-0006      Clause                SECTION {SecNo} — DEI REPORTING REQUIREMENTS
+   5. DEI-0008      Clause                SECTION {SecNo} — DEI AUDIT RIGHTS
+   6. DEI-0010      Clause                SECTION {SecNo} — CORRECTIVE ACTION
+   7. DEI-0012      Clause                SECTION {SecNo} — REMEDIES FOR NON-COMPLIANCE
+   8. DEI-0014      Clause                SECTION {SecNo} — NONDISCRIMINATION IN PERFORMANCE
+   9. DEI-0016      Clause                SECTION {SecNo} — ACCESSIBILITY REQUIREMENTS
+
+DocType: haz (HAZMAT clauses)
+----------------------------------------
+   1. HAZ-0000      HeaderNode            Hazard Materials Special Clauses Attachment
+   2. HAZ-0002      Clause                SECTION {SecNo} — HAZARDOUS MATERIALS IDENTIFICATI
+   3. HAZ-0004      Clause                SECTION {SecNo} — SAFETY DATA SHEETS (SDS)
+   4. HAZ-0006      Clause                SECTION {SecNo} — PACKAGING, MARKING, AND LABELING
+   5. HAZ-0008      Clause                SECTION {SecNo} — TRANSPORTATION AND SHIPPING REQU
+   6. HAZ-0010      Clause                SECTION {SecNo} — HANDLING, STORAGE, AND ON-SITE C
+   7. HAZ-0012      Clause                SECTION {SecNo} — SPILL RESPONSE AND INCIDENT REPO
+   8. HAZ-0014      Clause                SECTION {SecNo} — DISPOSAL AND WASTE MANAGEMENT
+   9. HAZ-0016      Clause                SECTION {SecNo} — TRAINING AND COMPETENCY
+  10. HAZ-0018      Clause                SECTION {SecNo} — CHANGES IN MATERIAL COMPOSITION 
+  11. HAZ-0020      Clause                SECTION {SecNo} — AGENCY RIGHT TO INSPECT
+  12. HAZ-0022      Clause                SECTION {SecNo} — INDEMNIFICATION FOR HAZARDOUS MA

@@ -1,0 +1,172 @@
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\req
+
+=== NL-0001.docx ===
+SDT Found  Tag: RequisitonNumber
+
+=== NL-0002.docx ===
+SDT Found  Tag: DASContact
+SDT Found  Tag: DASPhone
+SDT Found  Tag: DASemail
+
+=== NL-0003.docx ===
+No SDT fields found.
+
+=== NL-0004.docx ===
+No SDT fields found.
+
+=== NL-0005.docx ===
+SDT Found  Tag: TotalCost
+
+=== NL-0006.docx ===
+No SDT fields found.
+
+=== NL-0007.docx ===
+SDT Found  Tag: RequestingOfficial
+SDT Found  Tag: RequestingDate
+SDT Found  Tag: BudgetApproval
+SDT Found  Tag: BudgetDate
+SDT Found  Tag: ProcurementApproval
+SDT Found  Tag: ProcurementDate
+
+Done.
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\sol
+
+=== NL-0014.docx ===
+SDT Found  Tag: SolicitationNumber
+
+=== NL-0015.docx ===
+SDT Found  Tag: RFQissueDate
+SDT Found  Tag: RFQresponseDueDate
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\awd
+
+=== NL-0025.docx ===
+SDT Found  Tag: SolicitationNumber
+
+=== NL-0026.docx ===
+SDT Found  Tag: VendorName
+SDT Found  Tag: VendorAddress
+SDT Found  Tag: VendorDateIssued
+
+Done.
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\req
+
+=== NL-0038.docx ===
+SDT Found  Tag: ReqNumber
+
+=== NL-0039.docx ===
+No SDT fields found.
+
+=== NL-0040.docx ===
+No SDT fields found.
+
+=== NL-0041.docx ===
+SDT Found  Tag: ReqTitle
+SDT Found  Tag: Department
+SDT Found  Tag: RequestionOfficier
+SDT Found  Tag: DateSubmitted
+SDT Found  Tag: RequisitionID
+
+=== NL-0045.docx ===
+SDT Found  Tag: RequestionOfficerName
+SDT Found  Tag: Requesting Officer Signature
+SDT Found  Tag: RequestingOfficerDate
+SDT Found  Tag: DepartmentHead Name
+SDT Found  Tag: DepartmentHeadSignature
+SDT Found  Tag: DepartmentHeadDate
+SDT Found  Tag: ProcurementAuthorityName
+SDT Found  Tag: ProcurementAuthoritySignature
+SDT Found  Tag: ProcurementAuthorityDate
+
+=== NL-0047.docx ===
+SDT Found  Tag: EstimatedTotalCost
+SDT Found  Tag: FundingSource
+SDT Found  Tag: Goods
+SDT Found  Tag: Services
+SDT Found  Tag: OptionalAddOns
+SDT Found  Tag: Contingency
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\sol
+
+=== NL-0065.docx ===
+SDT Found  Tag: SolicitationNumber
+SDT Found  Tag: IssueDate
+SDT Found  Tag: ResponseDueDate
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\awd
+
+=== NL-0094.docx ===
+SDT Found  Tag: AwardNumber
+SDT Found  Tag: SupplierName
+SDT Found  Tag: AwardDate
+
+=== NL-0095.docx ===
+SDT Found  Tag: QuotationDate
+
+=== NL-0098.docx ===
+SDT Found  Tag: DeliveryLocation
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\req
+
+=== NL-0116.docx ===
+SDT Found  Tag: RequisitionNumber
+
+=== NL-0117.docx ===
+SDT Found  Tag: AgencyContact
+SDT Found  Tag: Agency Phone
+SDT Found  Tag: AgencyEmail
+
+=== NL-0119.docx ===
+SDT Found  Tag: RequestionOfficialName
+SDT Found  Tag: RequestingOfficialTitle
+SDT Found  Tag: RequestingOfficialSignature
+SDT Found  Tag: RequestingOfficialDate
+SDT Found  Tag: BudgetApprovalName
+SDT Found  Tag: BudgetApprovalTitle
+SDT Found  Tag: BudgetApprovalSignature
+SDT Found  Tag: BudgetApprovalDate
+SDT Found  Tag: ProcurementApprovalName
+SDT Found  Tag: ProcurementApprovalTitle
+SDT Found  Tag: ProcurementApprovalSignature
+SDT Found  Tag: ProcurementApprovalDate
+
+=== NL-0124.docx ===
+SDT Found  Tag: EstimatedAnnualSpending
+SDT Found  Tag: CostCenter
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\sol
+
+=== NL-0139.docx ===
+SDT Found  Tag: SolicitationNumber
+
+C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\awd
+
+=== NL-0163.docx ===
+SDT Found  Tag: ContractNumber
+
+=== NL-0164.docx ===
+SDT Found  Tag: VendorName
+SDT Found  Tag: AddressLine1
+SDT Found  Tag: AddressLine2
+
+=== NL-0165.docx ===
+SDT Found  Tag: ContractManagerName
+SDT Found  Tag: ContractManagerEmail
+SDT Found  Tag: ContractManagerPhone
+SDT Found  Tag: ContractorManagerName
+SDT Found  Tag: ContractorManagerEmail
+SDT Found  Tag: ContractorManagerPhone
+
+=== NL-0169.docx ===
+SDT Found  Tag: StateName
+SDT Found  Tag: StateTitle
+SDT Found  Tag: StateDate
+SDT Found  Tag: ContractorName
+SDT Found  Tag: ContractorTitle
+SDT Found  Tag: ContractorDate
+
+=== NL-0171.docx ===
+SDT Found  Tag: BasePeriodStart
+SDT Found  Tag: BasePeriodStop
+
+

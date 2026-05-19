@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\db",
+    "\\db\\sql",
+    "\\MakeDoc.Core",
+    "\\MakeDoc.Core.Tests",
+    "\\MakeDoc.Core\\Data",
+    "\\MakeDoc.Core\\Models",
+    "\\MakeDoc.Core\\Services",
+    "\\plumber"
+  ],
+  "SelectedNode": "\\config\\makedoc.config.json",
+  "PreviewInSolutionExplorer": false
+}

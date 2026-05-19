@@ -1,0 +1,12 @@
+{
+  "DatabasePath":                "C:/Users/skeye/BOOK2/MAKEDOC/db/MAKEDOC.db",
+  "SeedPath":                    "C:/Users/skeye/BOOK2/MAKEDOC/db/seed",
+  "SQLPath":                     "C:/Users/skeye/BOOK2/MAKEDOC/db/sql",
+  "PS1Path":                     "C:/Users/skeye/BOOK2/MAKEDOC/db/scripts",
+  "PlumberBaseUrl":              "http://localhost:8000",
+  "ClausesRoot":                 "C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/clauses",
+  "TemplatesRoot":               "C:/Users/skeye/BOOK2/MAKEDOC/docs/Clauses and assembled documents/templates",
+  "TemplatesManifest":           "C:/Users/skeye/BOOK2/MAKEDOC/db/seed/seed_Templates.csv",
+  "assembledDocumentsDirectory": "C:/temp/assembled_documents",
+  "LogLevel":                    "Info"
+}

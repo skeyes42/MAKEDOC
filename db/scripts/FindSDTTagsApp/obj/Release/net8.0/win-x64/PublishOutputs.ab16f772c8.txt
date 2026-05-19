@@ -1,0 +1,2 @@
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\bin\Release\net8.0\win-x64\publish\FindSDTTagsApp.pdb
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\bin\Release\net8.0\win-x64\publish\FindSDTTagsApp.exe

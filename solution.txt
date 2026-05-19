@@ -1,0 +1,6 @@
+Folder PATH listing for volume OS
+Volume serial number is 3084-6830
+C:\USERS\SKEYE\BOOK2\MAKEDOC\MAKEDOC
+Invalid path - \USERS\SKEYE\BOOK2\MAKEDOC\MAKEDOC
+No subfolders exist 
+

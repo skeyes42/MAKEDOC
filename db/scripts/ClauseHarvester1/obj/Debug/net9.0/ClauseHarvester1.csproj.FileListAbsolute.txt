@@ -1,0 +1,14 @@
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\bin\Debug\net9.0\ClauseHarvester1.exe
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\bin\Debug\net9.0\ClauseHarvester1.deps.json
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\bin\Debug\net9.0\ClauseHarvester1.runtimeconfig.json
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\bin\Debug\net9.0\ClauseHarvester1.dll
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\bin\Debug\net9.0\ClauseHarvester1.pdb
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.AssemblyInfoInputs.cache
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.AssemblyInfo.cs
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.csproj.CoreCompileInputs.cache
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.dll
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\refint\ClauseHarvester1.dll
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.pdb
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ClauseHarvester1.genruntimeconfig.cache
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\ClauseHarvester1\obj\Debug\net9.0\ref\ClauseHarvester1.dll
