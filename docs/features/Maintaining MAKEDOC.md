@@ -123,11 +123,52 @@ All of the steps of the seeding process are driving by the REBUILD_MAKEDOC_DATAB
 - Path to SQL scripts, and 
 - Path to Excel spreadsheets
 
-2. Since the Excel spreadsheets are maintained in .xlsx format, these .xlsx file are convert to .csv format by use in the SQL scripts.
+2. Since the Excel spreadsheets are maintained in .xlsx format, these .xlsx file are converted to .csv format by use in the SQL scripts.
 
 3. The SQLite3 application is used to run the **rebuild_MAKEDOC_database.sql** script. This SQL script does the following:
 - Drop all of any existing tables: **drop_MAKEDOC_tables.sql** script
 - Create new MAKEDOC tables: **create_MAKEDOC_tables** script
 - Load the DocType table from the **seed_DocType_table.csv** file: **load_DocType_table.sql** script
 - Load the NodeHierarchy table from the **seed_NodeHierarchy_table.csv** file: **load_NodeHierarchy_table.sql** script
-- Load the Instance table with 3 pre-configured assembled documents from the **seed_Instance_table.csv** file: **load_Instance_
+- Load the Instance table with 3 pre-configured assembled documents from the **seed_Instance_table.csv** file: **load_Instance_table.sql** script
+
+**Note at this point the Node table has metadata, doesn't have any DOCX content.
+
+4. Run the UploadNodes.R script to upload the Node content. This program reads the **NodesToLoad.csv** file.
+
+5. Run the **CheckNodes.R** program that goes against the Node table looking for Nodes that have empty content.
+
+6. Run the **TraverseNodeHierarchy.R** script to check the NodeHierarchy table and to access each node's content.
+
+7. Run the **find_fillins.ps1** PowerShell script. This script runs the **FindSDTTagsApp.exe** C# program to look at each Clause node and identify its SDT fill-ins.
+
+```mermaid
+flowchart TD
+
+    A[1. Housekeeping: Establish PS variables for paths to scripts and spreadsheets]
+
+    B[2. Convert XLSX spreadsheets to CSV for SQL scripts]
+
+    C[3. Run rebuild_MAKEDOC_database.sql using SQLite3]
+
+    C1[Drop existing tables - drop_MAKEDOC_tables.sql]
+    C2[Create new MAKEDOC tables - create_MAKEDOC_tables.sql]
+    C3[Load DocType table from seed_DocType_table.csv]
+    C4[Load NodeHierarchy table from seed_NodeHierarchy_table.csv]
+    C5[Load Instance table from seed_Instance_table.csv]
+
+    Cnote{{Node table now contains metadata only - no DOCX content}}
+
+    D[4. Run UploadNodes.R - reads NodesToLoad.csv and uploads DOCX content]
+
+    E[5. Run CheckNodes.R - find Node rows with empty content]
+
+    F[6. Run TraverseNodeHierarchy.R - walk hierarchy and access node content]
+
+    G[7. Run find_fillins.ps1 - runs FindSDTTagsApp.exe to identify SDT fill-ins]
+
+    A --> B --> C
+    C --> C1 --> C2 --> C3 --> C4 --> C5 --> Cnote
+    Cnote --> D --> E --> F --> G
+
+```
