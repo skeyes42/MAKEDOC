@@ -1,0 +1,1 @@
+This document explains the role of a **user clause** in MAKEDOC.

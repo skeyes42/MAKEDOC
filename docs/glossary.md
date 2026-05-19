@@ -1,0 +1,24 @@
+# Glossary of Terms
+- Node
+- Node Group
+- Header Node
+- Clause
+- Assembled Document
+- Tier
+- Procurement Phase
+- DocType Table
+- NodeHierarchy Table
+- Node Table
+- Instance Table
+- Special Clauses
+- Adjacency List
+- Template
+- Transient List
+- Transient Clause List
+- Transient Node List
+- Instance
+- Archiving
+- Document Analytics
+- Plumber
+- Inclusion Tag
+
