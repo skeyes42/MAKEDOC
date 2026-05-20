@@ -1,4 +1,4 @@
-# Potential Holes in the Makedoc app
+# Know Limitations
 This document is used to discuss things that the MAKEDOC app doesn't do. Situations that is doesn't handle, but, in the real world, come up.
 
 ## Regarding Maintenace
