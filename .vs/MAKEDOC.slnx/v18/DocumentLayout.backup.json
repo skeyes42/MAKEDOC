@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|c:\\users\\skeye\\book2\\makedoc\\makedoc.core\\models\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|solutionrelative:makedoc.core\\models\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|c:\\users\\skeye\\book2\\makedoc\\makedoc.core\\data\\makedocdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|solutionrelative:makedoc.core\\data\\makedocdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|c:\\users\\skeye\\book2\\makedoc\\makedoc.core\\models\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178A440F-E2B7-50DB-2A0B-46729E4ECDFC}|MakeDoc.Core\\MakeDoc.Core.csproj|solutionrelative:makedoc.core\\models\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D34E488-9DD8-14CB-7F2B-CE833926A903}|MakeDoc.App\\MakeDoc.App.csproj|c:\\users\\skeye\\book2\\makedoc\\makedoc.app\\forms\\maindashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -48,7 +48,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -56,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Node.cs",
               "DocumentMoniker": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\MakeDoc.Core\\Models\\Node.cs",
               "RelativeDocumentMoniker": "MakeDoc.Core\\Models\\Node.cs",
@@ -64,8 +64,7 @@
               "RelativeToolTip": "MakeDoc.Core\\Models\\Node.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T16:48:56.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-10T16:48:56.945Z"
             },
             {
               "$type": "Document",
@@ -81,13 +80,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MakeDocDb.cs",
               "DocumentMoniker": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\MakeDoc.Core\\Data\\MakeDocDb.cs",
               "RelativeDocumentMoniker": "MakeDoc.Core\\Data\\MakeDocDb.cs",
               "ToolTip": "C:\\Users\\skeye\\BOOK2\\MAKEDOC\\MakeDoc.Core\\Data\\MakeDocDb.cs",
               "RelativeToolTip": "MakeDoc.Core\\Data\\MakeDocDb.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAawDsAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswGcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T10:40:45.174Z",
               "EditorCaption": ""
