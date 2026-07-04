@@ -1,0 +1,2 @@
+[low_sol.txt] | Line #: 1 | Description: Pencils | NAICS: 44567 | Qty: 100 | Unit: BOX | Unit Price: $20.00 | Extended: $2,000.00
+[low_sol.txt] | Line #: 2 | Description: Batteries | NAICS: 55045 | Qty: 100 | Unit: EA | Unit Price: $225.00 | Extended: $22,500.00

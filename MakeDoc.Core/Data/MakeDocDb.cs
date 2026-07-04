@@ -49,7 +49,7 @@ namespace MakeDoc.Core.Data
                     NodeID   TEXT PRIMARY KEY,
                     Type     TEXT NOT NULL,
                     NodeType TEXT NOT NULL CHECK(NodeType IN (
-                                'Document','Clause','HeaderNode','Template')),
+                                'Document','Clause','HeaderNode')),
                     Title    TEXT NULL,
                     Sequence INTEGER NOT NULL DEFAULT 0,
 					IsUserClause INTEGER NOT NULL DEFAULT 0,
@@ -65,10 +65,8 @@ namespace MakeDoc.Core.Data
                     Name          TEXT NOT NULL,
                     InclusionTags TEXT,
                     HeaderNodeID  TEXT NULL,
-                    TemplateBlobID    TEXT NULL,
                     Tier TEXT NULL, -- 'micro' | 'standard' | 'complex'
-                    FOREIGN KEY (HeaderNodeID) REFERENCES Node(NodeID),
-                    FOREIGN KEY (TemplateBlobID)   REFERENCES Node(NodeID)
+                    FOREIGN KEY (HeaderNodeID) REFERENCES Node(NodeID)
                 );
 
                 CREATE TABLE IF NOT EXISTS NodeHierarchy (
@@ -91,7 +89,6 @@ namespace MakeDoc.Core.Data
 					IsArchived INTEGER DEFAULT 0, -- 0 = active, 1 = archived
 					ArchiveDate TEXT NULL,
 					Title TEXT NOT NULL DEFAULT '',
-					OutputFile TEXT NULL,
         
 					-- JSON data columns
 					InclusionData TEXT, -- JSON: {""tags"": [""DEI"", ""HAZMAT""], ""tier"": ""standard""}
@@ -102,6 +99,32 @@ namespace MakeDoc.Core.Data
 					FOREIGN KEY (PrevEditionID) REFERENCES Instance(InstanceID),
 					FOREIGN KEY (BuildFromID)   REFERENCES Instance(InstanceID)
 				);
+
+				CREATE TABLE IF NOT EXISTS LineItem (
+					LineItemID   TEXT PRIMARY KEY,
+					DocTypeID    TEXT NULL,
+					InstanceID   TEXT NULL,
+					LineNum      INTEGER NOT NULL,
+					Description  TEXT NOT NULL,
+					NAICS        INTEGER DEFAULT 0,
+					Unit         TEXT NOT NULL,
+					Quantity     REAL NOT NULL,
+					UnitPrice    REAL NOT NULL,
+
+					FOREIGN KEY (DocTypeID)  REFERENCES DocType(DocTypeID),
+					FOREIGN KEY (InstanceID) REFERENCES Instance(InstanceID),
+					CHECK (
+						(DocTypeID IS NOT NULL AND InstanceID IS NULL) OR
+						(DocTypeID IS NULL AND InstanceID IS NOT NULL)
+					)
+				);
+
+
+				CREATE INDEX IF NOT EXISTS idx_Node_NodeType ON Node(NodeType);
+				CREATE INDEX IF NOT EXISTS idx_Node_Sequence ON Node(Sequence);
+				CREATE INDEX IF NOT EXISTS idx_DocType_Name ON DocType(Name);
+				CREATE INDEX IF NOT EXISTS idx_Instance_DocTypeID ON Instance(DocTypeID);
+				CREATE INDEX IF NOT EXISTS idx_Instance_GeneratedDate ON Instance(GeneratedDate);
             ";
 
 			cmd.ExecuteNonQuery();
@@ -236,14 +259,13 @@ namespace MakeDoc.Core.Data
 			using var cmd = connection.CreateCommand();
 
 			cmd.CommandText = @"
-                INSERT INTO DocType (DocTypeID, Name, InclusionTags, HeaderNodeID, TemplateBlobID, Tier)
-                VALUES (@DocTypeID, @Name, @InclusionTags, @HeaderNodeID, @TemplateBlobID, @Tier);";
+                INSERT INTO DocType (DocTypeID, Name, InclusionTags, HeaderNodeID, Tier)
+                VALUES (@DocTypeID, @Name, @InclusionTags, @HeaderNodeID, @Tier);";
 
 			cmd.Parameters.AddWithValue("@DocTypeID", docType.DocTypeID);
 			cmd.Parameters.AddWithValue("@Name", docType.Name);
 			cmd.Parameters.AddWithValue("@InclusionTags", docType.InclusionTags ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@HeaderNodeID", docType.HeaderNodeID ?? (object)DBNull.Value);
-			cmd.Parameters.AddWithValue("@TemplateBlobID", docType.TemplateBlobID ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@Tier", docType.Tier ?? (object)DBNull.Value);
 
 			cmd.ExecuteNonQuery();
@@ -255,7 +277,7 @@ namespace MakeDoc.Core.Data
 			using var cmd = connection.CreateCommand();
 
 			cmd.CommandText = @"
-                SELECT DocTypeID, Name, InclusionTags, HeaderNodeID, TemplateBlobID, Tier
+                SELECT DocTypeID, Name, InclusionTags, HeaderNodeID, Tier
                 FROM DocType
                 WHERE DocTypeID = @DocTypeID;";
 
@@ -273,7 +295,7 @@ namespace MakeDoc.Core.Data
 			using var cmd = connection.CreateCommand();
 
 			cmd.CommandText = @"
-                SELECT DocTypeID, Name, InclusionTags, HeaderNodeID, TemplateBlobID, Tier
+                SELECT DocTypeID, Name, InclusionTags, HeaderNodeID, Tier
                 FROM DocType
                 ORDER BY Name;";
 
@@ -295,7 +317,6 @@ namespace MakeDoc.Core.Data
                 SET Name           = @Name,
                     InclusionTags  = @InclusionTags,
                     HeaderNodeID   = @HeaderNodeID,
-                    TemplateBlobID = @TemplateBlobID,
                     Tier           = @Tier
                 WHERE DocTypeID = @DocTypeID;";
 
@@ -303,7 +324,6 @@ namespace MakeDoc.Core.Data
 			cmd.Parameters.AddWithValue("@Name", docType.Name);
 			cmd.Parameters.AddWithValue("@InclusionTags", docType.InclusionTags ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@HeaderNodeID", docType.HeaderNodeID ?? (object)DBNull.Value);
-			cmd.Parameters.AddWithValue("@TemplateBlobID", docType.TemplateBlobID ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@Tier", docType.Tier ?? (object)DBNull.Value);
 
 			cmd.ExecuteNonQuery();
@@ -327,8 +347,7 @@ namespace MakeDoc.Core.Data
 				Name = reader.GetString(1),
 				InclusionTags = reader.IsDBNull(2) ? null : reader.GetString(2),
 				HeaderNodeID = reader.IsDBNull(3) ? null : reader.GetString(3),
-				TemplateBlobID = reader.IsDBNull(4) ? null : reader.GetString(4),
-				Tier = reader.IsDBNull(5) ? null : reader.GetString(5)
+				Tier = reader.IsDBNull(4) ? null : reader.GetString(4)
 			};
 		}
 
@@ -441,10 +460,10 @@ namespace MakeDoc.Core.Data
 			cmd.CommandText = @"
                 INSERT INTO Instance
                     (InstanceID, DocTypeID, PrevEditionID, BuildFromID,
-                     InclusionData, FillinData, NodeList)
+                     InclusionData, FillinData, NodeList, Title)
                 VALUES
                     (@InstanceID, @DocTypeID, @PrevEditionID, @BuildFromID,
-                     @InclusionData, @FillinData, @NodeList);";
+                     @InclusionData, @FillinData, @NodeList, @Title);";
 
 			cmd.Parameters.AddWithValue("@InstanceID", instance.InstanceID);
 			cmd.Parameters.AddWithValue("@DocTypeID", instance.DocTypeID);
@@ -453,6 +472,7 @@ namespace MakeDoc.Core.Data
 			cmd.Parameters.AddWithValue("@InclusionData", instance.InclusionData ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@FillinData", instance.FillinData ?? (object)DBNull.Value);
 			cmd.Parameters.AddWithValue("@NodeList", instance.NodeList ?? (object)DBNull.Value);
+			cmd.Parameters.AddWithValue("@Title", instance.Title ?? (object)DBNull.Value);
 
 			// GeneratedDate defaults to datetime('now'); IsArchived defaults to 0.
 			cmd.ExecuteNonQuery();
@@ -513,7 +533,7 @@ namespace MakeDoc.Core.Data
                        i.PrevEditionID, i.BuildFromID, i.GeneratedDate,
                        i.IsArchived, i.ArchiveDate,
                        i.InclusionData, i.FillinData, i.NodeList,
-                       d.Tier
+                       d.Tier, i.Title
                 FROM Instance i
                 LEFT JOIN DocType d ON i.DocTypeID = d.DocTypeID
                 WHERE i.IsArchived = @IsArchived
@@ -542,7 +562,7 @@ namespace MakeDoc.Core.Data
                        i.PrevEditionID, i.BuildFromID, i.GeneratedDate,
                        i.IsArchived, i.ArchiveDate,
                        i.InclusionData, i.FillinData, i.NodeList,
-                       d.Tier
+                       d.Tier, i.Title
                 FROM Instance i
                 LEFT JOIN DocType d ON i.DocTypeID = d.DocTypeID
                 ORDER BY i.GeneratedDate DESC;";
@@ -647,9 +667,9 @@ namespace MakeDoc.Core.Data
 		//          PrevEditionID(3), BuildFromID(4), GeneratedDate(5),
 		//          IsArchived(6), ArchiveDate(7),
 		//          InclusionData(8), FillinData(9), NodeList(10),
-		//          DocTypeTier(11)
+		//          DocTypeTier(11), Title(12)
 		private static Instance MapInstanceWithDocType(SqliteDataReader reader)
-		{
+			{
 			return new Instance
 			{
 				InstanceID = reader.GetString(0),
@@ -663,8 +683,198 @@ namespace MakeDoc.Core.Data
 				InclusionData = reader.IsDBNull(8) ? null : reader.GetString(8),
 				FillinData = reader.IsDBNull(9) ? null : reader.GetString(9),
 				NodeList = reader.IsDBNull(10) ? null : reader.GetString(10),
-				DocTypeTier = reader.IsDBNull(11) ? null : reader.GetString(11)
+				DocTypeTier = reader.IsDBNull(11) ? null : reader.GetString(11),
+				Title = reader.IsDBNull(12) ? string.Empty : reader.GetString(12)
 			};
 		}
+		public void InsertLineItem(LineItem item)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        INSERT INTO LineItem
+            (LineItemID, DocTypeID, InstanceID, LineNum, Description, NAICS, Unit, Quantity, UnitPrice)
+        VALUES
+            (@LineItemID, @DocTypeID, @InstanceID, @LineNum, @Description, @NAICS, @Unit, @Quantity, @UnitPrice);";
+
+			cmd.Parameters.AddWithValue("@LineItemID", item.LineItemID);
+			cmd.Parameters.AddWithValue("@DocTypeID",  (object?)item.DocTypeID  ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@InstanceID", (object?)item.InstanceID ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@LineNum",    item.LineNum);
+			cmd.Parameters.AddWithValue("@Description", item.Description);
+			cmd.Parameters.AddWithValue("@NAICS",      item.NAICS);
+			cmd.Parameters.AddWithValue("@Unit",       item.Unit);
+			cmd.Parameters.AddWithValue("@Quantity",   item.Quantity);
+			cmd.Parameters.AddWithValue("@UnitPrice",  item.UnitPrice);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public LineItem? GetLineItem(string lineItemID)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        SELECT LineItemID, DocTypeID, InstanceID, LineNum, Description, NAICS, Unit, Quantity, UnitPrice
+        FROM LineItem
+        WHERE LineItemID = @LineItemID;";
+
+			cmd.Parameters.AddWithValue("@LineItemID", lineItemID);
+
+			using var reader = cmd.ExecuteReader();
+			if (!reader.Read()) return null;
+
+			return MapLineItem(reader);
+		}
+
+		public List<LineItem> GetLineItemsForDocType(string docTypeID)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        SELECT LineItemID, DocTypeID, InstanceID, LineNum, Description, NAICS, Unit, Quantity, UnitPrice
+        FROM LineItem
+        WHERE DocTypeID = @DocTypeID
+        ORDER BY LineNum;";
+
+			cmd.Parameters.AddWithValue("@DocTypeID", docTypeID);
+
+			using var reader = cmd.ExecuteReader();
+			var items = new List<LineItem>();
+
+			while (reader.Read())
+				items.Add(MapLineItem(reader));
+
+			return items;
+		}
+
+		public List<LineItem> GetLineItemsForInstance(string instanceID)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        SELECT LineItemID, DocTypeID, InstanceID, LineNum, Description, NAICS, Unit, Quantity, UnitPrice
+        FROM LineItem
+        WHERE InstanceID = @InstanceID
+        ORDER BY LineNum;";
+
+			cmd.Parameters.AddWithValue("@InstanceID", instanceID);
+
+			using var reader = cmd.ExecuteReader();
+			var items = new List<LineItem>();
+
+			while (reader.Read())
+				items.Add(MapLineItem(reader));
+
+			return items;
+		}
+
+		/// <summary>
+		/// Re-keys all line items staged against a DocType to a concrete
+		/// Instance. Called once at generation time so the instance owns
+		/// its line items and the doctype staging area is cleared.
+		/// </summary>
+		public void AssignLineItemsToInstance(string docTypeID, string instanceID)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        UPDATE LineItem
+        SET InstanceID = @InstanceID,
+            DocTypeID  = NULL
+        WHERE DocTypeID = @DocTypeID;";
+
+			cmd.Parameters.AddWithValue("@DocTypeID",  docTypeID);
+			cmd.Parameters.AddWithValue("@InstanceID", instanceID);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		/// <summary>
+		/// Copies the line items owned by a source instance to a target
+		/// instance (new LineItemIDs). Used when building a new document
+		/// from an existing one so line items carry through.
+		/// </summary>
+		public void CopyLineItemsToInstance(string sourceInstanceID, string targetInstanceID)
+		{
+			foreach (var src in GetLineItemsForInstance(sourceInstanceID))
+			{
+				InsertLineItem(new LineItem
+				{
+					LineItemID  = Guid.NewGuid().ToString(),
+					DocTypeID   = null,
+					InstanceID  = targetInstanceID,
+					LineNum     = src.LineNum,
+					Description = src.Description,
+					NAICS       = src.NAICS,
+					Unit        = src.Unit,
+					Quantity    = src.Quantity,
+					UnitPrice   = src.UnitPrice
+				});
+			}
+		}
+
+		public void UpdateLineItem(LineItem item)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = @"
+        UPDATE LineItem
+        SET DocTypeID   = @DocTypeID,
+            InstanceID  = @InstanceID,
+            LineNum     = @LineNum,
+            Description = @Description,
+            NAICS       = @NAICS,
+            Unit        = @Unit,
+            Quantity    = @Quantity,
+            UnitPrice   = @UnitPrice
+        WHERE LineItemID = @LineItemID;";
+
+			cmd.Parameters.AddWithValue("@LineItemID", item.LineItemID);
+			cmd.Parameters.AddWithValue("@DocTypeID",  (object?)item.DocTypeID  ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@InstanceID", (object?)item.InstanceID ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@LineNum",    item.LineNum);
+			cmd.Parameters.AddWithValue("@Description", item.Description);
+			cmd.Parameters.AddWithValue("@NAICS",      item.NAICS);
+			cmd.Parameters.AddWithValue("@Unit",       item.Unit);
+			cmd.Parameters.AddWithValue("@Quantity",   item.Quantity);
+			cmd.Parameters.AddWithValue("@UnitPrice",  item.UnitPrice);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		public void DeleteLineItem(string lineItemID)
+		{
+			using var connection = OpenConnection();
+			using var cmd = connection.CreateCommand();
+
+			cmd.CommandText = "DELETE FROM LineItem WHERE LineItemID = @LineItemID;";
+			cmd.Parameters.AddWithValue("@LineItemID", lineItemID);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		private static LineItem MapLineItem(SqliteDataReader reader)
+		{
+			return new LineItem
+			{
+				LineItemID  = reader.GetString(0),
+				DocTypeID   = reader.IsDBNull(1) ? null : reader.GetString(1),
+				InstanceID  = reader.IsDBNull(2) ? null : reader.GetString(2),
+				LineNum     = reader.GetInt32(3),
+				Description = reader.GetString(4),
+				NAICS       = reader.GetInt32(5),
+				Unit        = reader.GetString(6),
+				Quantity    = reader.GetDouble(7),
+				UnitPrice   = reader.GetDouble(8)
+			};
+		}
+
 	}
 }

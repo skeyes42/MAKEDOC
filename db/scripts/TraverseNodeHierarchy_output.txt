@@ -12,7 +12,7 @@ DocType: req-micro (Micro tier requisition)
 DocType: sol-micro (Micro tier solicitation)
 ----------------------------------------
    1. NL-0014       HeaderNode            State of Northlandia
-   2. NL-0015       Clause                SECTION {SecNo} — RFQ INFORMATION
+   2. NL-0015       Clause                SECTION {SecNo} — RFQ AND REQUISITION INFORMATION
    3. NL-0016       Clause                SECTION {SecNo} — ITEMS REQUESTED
    4. NL-0017       Clause                SECTION {SecNo} — DELIVERY REQUIREMENTS
    5. NL-0018       Clause                SECTION {SecNo} — QUOTE SUBMISSION
@@ -21,7 +21,7 @@ DocType: sol-micro (Micro tier solicitation)
 DocType: awd-micro (Micro tier award)
 ----------------------------------------
    1. NL-0025       HeaderNode            State of Northlandia
-   2. NL-0026       Clause                SECTION {SecNo} — PURCHASE ORDER INFORMATION
+   2. NL-0026       Clause                SECTION {SecNo} — PURCHASE ORDER AND SOLICITATION 
    3. NL-0027       Clause                SECTION {SecNo} — ITEMS ORDERED
    4. NL-0028       Clause                SECTION {SecNo} — DELIVERY
    5. NL-0029       Clause                SECTION {SecNo} — PAYMENT
@@ -31,26 +31,27 @@ DocType: awd-micro (Micro tier award)
 DocType: req-std (Standard tier requisition)
 ----------------------------------------
    1. NL-0038       HeaderNode            State of Northlandia
-   2. NL-0041       Clause                SECTION {SECNO} — REQUISITION OVERVIEW
-   3. NL-0046       Clause                SECTION {SECNO} — REQUISITION OVERVIEW
-   4. NL-0039       Clause                SECTION {SECNO} — TECHNICAL SPECIFICATIONS
-   5. NL-0047       Clause                SECTION {SECNO} — BUDGET AND FUNDING
-   6. NL-0048       Clause                SECTION {SECNO} — PROCUREMENT METHOD AND JUSTIFICA
-   7. NL-0040       Clause                SECTION {SECNO} — DELIVERY, MILESTONES, AND TIMELI
-   8. NL-0049       Clause                SECTION {SECNO} — RISK ASSESSMENT
-   9. NL-0050       Clause                SECTION {SECNO} — COMPLIANCE AND REGULATORY REQUIR
-  10. NL-0051       Clause                SECTION {SECNO} — EVALUATION CRITERIA
-  11. NL-0042       Clause                SECTION {SECNO} — VENDOR QUALIFICATIONS
-  12. NL-0043       Clause                SECTION {SECNO} — CONTRACTUAL TERMS AND CONDITIONS
-  13. NL-0044       Clause                SECTION {SECNO} — ATTACHMENTS AND SUPPORTING DOCUM
-  14. NL-0045       Clause                SECTION {SECNO} — APPROVALS
+   2. NL-0041       Clause                SECTION {SecNo} — REQUISITION OVERVIEW
+   3. NL-0046       Clause                SECTION {SecNo} — REQUISITION OVERVIEW
+   4. NL-0039       Clause                SECTION {SecNo} — TECHNICAL SPECIFICATIONS
+   5. NL-0004       Clause                SECTION {SecNo} — DESCRIPTION OF ITEMS
+   6. NL-0047       Clause                SECTION {SecNo} — BUDGET AND FUNDING
+   7. NL-0048       Clause                SECTION {SecNo} — PROCUREMENT METHOD AND JUSTIFICA
+   8. NL-0040       Clause                SECTION {SecNo} — DELIVERY, MILESTONES, AND TIMELI
+   9. NL-0049       Clause                SECTION {SecNo} — RISK ASSESSMENT
+  10. NL-0050       Clause                SECTION {SecNo} — COMPLIANCE AND REGULATORY REQUIR
+  11. NL-0051       Clause                SECTION {SecNo} — EVALUATION CRITERIA
+  12. NL-0042       Clause                SECTION {SecNo} — VENDOR QUALIFICATIONS
+  13. NL-0043       Clause                SECTION {SecNo} — CONTRACTUAL TERMS AND CONDITIONS
+  14. NL-0044       Clause                SECTION {SecNo} — ATTACHMENTS AND SUPPORTING DOCUM
+  15. NL-0045       Clause                SECTION {SecNo} — APPROVALS
 
 DocType: sol-std (Standard tier solicitation)
 ----------------------------------------
    1. NL-0065       HeaderNode            STATE OF NORTHLANDIA
    2. NL-0066       Clause                SECTION {SecNo} — INTRODUCTION
    3. NL-0071       Clause                SECTION {SecNo} — DESCRIPTION OF GOODS
-   4. NL-0074       Clause                SECTION {SecNo} — PRICING
+   4. NL-0004       Clause                SECTION {SecNo} — DESCRIPTION OF ITEMS
    5. NL-0075       Clause                SECTION {SecNo} — EVALUATION CRITERIA
    6. NL-0076       Clause                SECTION {SecNo} — TERMS & CONDITIONS (STANDARD TIE
    7. NL-0070       Clause                SECTION {SecNo} — SUBMISSION INSTRUCTIONS
@@ -96,7 +97,7 @@ DocType: awd-cplx (Complex tier award)
    2. NL-0164       Clause                SECTION {SecNo} — PARTIES
    3. NL-0170       Clause                SECTION {SecNo} — PURPOSE
    4. NL-0171       Clause                SECTION {SecNo} — TERM OF CONTRACT
-   5. NL-0172       Clause                SECTION {SecNo} — CONTRACT LINE ITEMS (CLINs)
+   5. NL-0172       Clause                SECTION {SecNo} — CONTRACT LINE ITEMS (CLINs){line
    6. NL-0173       Clause                SECTION {SecNo} — SPECIFICATIONS
    7. NL-0174       Clause                SECTION {SecNo} — ORDERING AND DELIVERY
    8. NL-0175       Clause                SECTION {SecNo} — BATTERY RECYCLING PROGRAM

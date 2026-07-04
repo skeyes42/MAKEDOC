@@ -3,10 +3,16 @@
 # MAKEDOC Plumber API
 #
 # Endpoints:
-#   GET  /health          — server and database status check
-#   GET  /doctypes        — list all document types
-#   GET  /instances       — list all active instances
-#   POST /assemble        — assemble a document and return the DOCX bytes
+#   GET  /health                  — server and database status check
+#   GET  /doctypes                — list all document types
+#   GET  /instances               — list all active instances
+#   POST /assemble                — assemble a document and return the DOCX bytes
+#   GET  /embeddings/status       — embedding coverage and Ollama reachability
+#   POST /embeddings/refresh      — extract text + (re)embed stale/missing nodes
+#   GET  /embeddings/similar/<id> — nearest neighbors of an existing node
+#   GET  /embeddings/duplicates   — node pairs above a cosine threshold
+#   GET  /embeddings/clusters     — k-means clusters over the embedding matrix
+#   GET  /search/semantic         — embed a query, return top-k similar nodes
 #
 # To start the server:
 #   library(plumber)
@@ -14,9 +20,12 @@
 #   pr$run(host = "0.0.0.0", port = 8000)
 #
 # The MAKEDOC_DB environment variable must be set before starting.
+# Embedding endpoints also need a local Ollama server (OLLAMA_URL,
+# default http://127.0.0.1:11434) with the model in MAKEDOC_EMBED_MODEL
+# (default nomic-embed-text) pulled.
 #
 # Required packages:
-#   plumber, DBI, RSQLite, jsonlite, xml2, zip, uuid
+#   plumber, DBI, RSQLite, jsonlite, xml2, zip, uuid, httr2, openssl
 # ──────────────────────────────────────────────────────────────────────────────
 
 # Resolve the directory this file lives in. `source()` is CWD-relative,
@@ -33,6 +42,7 @@
 
 source(file.path(.api_dir, "db.R"))
 source(file.path(.api_dir, "assemble.R"))
+source(file.path(.api_dir, "embed.R"))
 
 library(uuid)
 
@@ -47,6 +57,13 @@ error_response <- function(res, status, message) {
   res$setHeader("Content-Type", "application/json")
   res$body   <- jsonlite::toJSON(list(error = message), auto_unbox = TRUE)
   res
+}
+
+# Maps an error to an HTTP status: 503 when the message indicates the
+# Ollama server is unreachable, 500 otherwise. Embedding routes use this
+# so "Ollama is down" degrades cleanly while FTS5 search keeps working.
+embed_error_status <- function(e) {
+  if (grepl("Ollama", conditionMessage(e), fixed = TRUE)) 503 else 500
 }
 
 # Converts a data frame to a list of named lists, one per row. Safer
@@ -221,5 +238,171 @@ function(req, res) {
 
   }, error = function(e) {
     error_response(res, 500, e$message)
+  })
+}
+
+
+# ── GET /embeddings/status ─────────────────────────────────────────────────────
+#
+# Reports embedding coverage: how many nodes have content, extracted text,
+# current vectors, and stale vectors — plus whether Ollama is reachable.
+
+#* @get /embeddings/status
+function(res) {
+
+  tryCatch({
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+    embedding_status(con)
+  }, error = function(e) {
+    res$status <- 500
+    list(error = e$message)
+  })
+}
+
+
+# ── POST /embeddings/refresh ───────────────────────────────────────────────────
+#
+# Extracts plain text and (re)embeds every node whose Content blob changed
+# since it was last processed. Idempotent — fresh nodes are skipped, so this
+# is cheap to call after any clause edit or as the last step of a DB rebuild.
+#
+# Returns: { "scanned": n, "textRefreshed": n, "embedded": n,
+#            "skipped": n, "emptied": n }
+
+#* @post /embeddings/refresh
+function(res) {
+
+  tryCatch({
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+    refresh_embeddings(con)
+  }, error = function(e) {
+    res$status <- embed_error_status(e)
+    list(error = e$message)
+  })
+}
+
+
+# ── GET /search/semantic ───────────────────────────────────────────────────────
+#
+# Semantic clause search. Embeds the query (with nomic's "search_query: "
+# prefix) and returns the k most cosine-similar library clauses.
+#
+# Query parameters:
+#   q — search text (required)
+#   k — number of results (default 10)
+#
+# Returns: [ { "nodeId", "title", "score", "snippet" }, ... ]
+# Same shape as an FTS5 search result, so the UI can offer exact vs
+# semantic as a toggle on one search box.
+
+#* @get /search/semantic
+function(q = "", k = 10, res) {
+
+  if (!nzchar(trimws(q))) {
+    res$status <- 400
+    return(list(error = "Query parameter 'q' is required."))
+  }
+
+  tryCatch({
+
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+
+    m <- load_embedding_matrix(con)
+    if (is.null(m))
+      stop("No embeddings found — run POST /embeddings/refresh first.")
+
+    qv   <- ollama_embed(q, prefix = "search_query: ")[1, ]
+    topk <- cosine_topk(m, qv, k)
+    similarity_results(con, topk)
+
+  }, error = function(e) {
+    res$status <- embed_error_status(e)
+    list(error = e$message)
+  })
+}
+
+
+# ── GET /embeddings/similar/<id> ───────────────────────────────────────────────
+#
+# Nearest neighbors of an existing node — "clauses like this one".
+# Uses the node's stored vector; no Ollama call needed.
+#
+# Returns: [ { "nodeId", "title", "score", "snippet" }, ... ]
+# (the node itself is excluded)
+
+#* @get /embeddings/similar/<id>
+function(id, k = 10, res) {
+
+  tryCatch({
+
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+
+    m <- load_embedding_matrix(con)
+    if (is.null(m))
+      stop("No embeddings found — run POST /embeddings/refresh first.")
+
+    if (!(id %in% rownames(m))) {
+      res$status <- 404
+      return(list(error = paste0("No embedding found for node: ", id)))
+    }
+
+    qv   <- m[which(rownames(m) == id)[[1]], ]
+    topk <- cosine_topk(m, qv, as.integer(k) + 1)   # +1: self scores 1.0
+    topk <- topk[topk$NodeID != id, ]
+    similarity_results(con, head(topk, as.integer(k)))
+
+  }, error = function(e) {
+    res$status <- embed_error_status(e)
+    list(error = e$message)
+  })
+}
+
+
+# ── GET /embeddings/duplicates ─────────────────────────────────────────────────
+#
+# Clause-library hygiene report: all node pairs whose cosine similarity is
+# at or above the threshold. Surfaces near-identical clauses that drifted
+# apart (e.g. a UC- user clause pasted from an NL- library clause and
+# lightly edited). Calibrate the threshold against known pairs; ~0.92 is a
+# reasonable start for nomic-embed-text.
+#
+# Returns: [ { "nodeA", "titleA", "nodeB", "titleB", "score" }, ... ]
+
+#* @get /embeddings/duplicates
+function(threshold = 0.92, res) {
+
+  tryCatch({
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+    find_duplicates(con, as.numeric(threshold))
+  }, error = function(e) {
+    res$status <- embed_error_status(e)
+    list(error = e$message)
+  })
+}
+
+
+# ── GET /embeddings/clusters ───────────────────────────────────────────────────
+#
+# K-means clustering over the embedding matrix (unit-normalized, so
+# effectively spherical k-means). Semantic successor to the TF-IDF
+# distance matrix in cluster_docs.R. Seeded — same data, same clusters.
+#
+# Returns: { "k": n, "clusters": [ { "nodeId", "title", "cluster" }, ... ] }
+
+#* @get /embeddings/clusters
+function(k = 8, res) {
+
+  tryCatch({
+    con <- open_connection()
+    on.exit(dbDisconnect(con))
+    cluster_embeddings(con, k)
+  }, error = function(e) {
+    res$status <- embed_error_status(e)
+    list(error = e$message)
   })
 }

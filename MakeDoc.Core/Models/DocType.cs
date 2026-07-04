@@ -10,7 +10,6 @@
         public string? InclusionTags { get; set; }
 
         public string? HeaderNodeID { get; set; }  // FK → Node (NodeType = HeaderNode)
-        public string? TemplateBlobID { get; set; }  // FK → Node (NodeType = Template)
 
         public string? Tier { get; set; }  // e.g. "micro", "standard", "complex"
 

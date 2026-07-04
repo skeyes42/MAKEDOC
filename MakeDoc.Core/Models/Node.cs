@@ -20,6 +20,5 @@
         public const string Subsection = "Subsection";
         public const string Clause = "Clause";
         public const string HeaderNode = "HeaderNode";
-        public const string Template = "Template";
     }
 }

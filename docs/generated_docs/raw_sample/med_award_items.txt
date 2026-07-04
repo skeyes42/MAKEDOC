@@ -1,0 +1,2 @@
+[med_award.txt] | Line #: 1 | Description: Motor oil | NAICS: 44333 | Qty: 100 | Unit: BOX | Unit Price: $200.00 | Extended: $20,000.00
+[med_award.txt] | Line #: 2 | Description: Gasoline | NAICS: 22344 | Qty: 1000 | Unit: GAL | Unit Price: $5.00 | Extended: $5,000.00

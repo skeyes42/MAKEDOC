@@ -1,0 +1,30 @@
+State of Northlandia
+General Services
+  Requisition No. 
+  Title:
+SECTION 1 — REQUESTING AGENCY INFORMATION
+Agency: General Services
+Division:
+Contact:
+Phone:
+Email:
+SECTION 2 — PURPOSE
+The agency requests approval to purchase:
+SECTION 3 — DESCRIPTION OF ITEMS
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Pencils	44567	100	BOX	$20.00	$2,000.00
+2	Batteries	55045	100	EA	$225.00	$22,500.00
+3	Rulers	93942	20	BOX	$15.00	$300.00
+Grand Total: $24,800.00
+SECTION 4 — ESTIMATED COST
+Estimated Total Cost: $
+Funding Source: Operating Funds
+Fiscal Year: 2026
+SECTION 5 — PROCUREMENT METHOD
+Procurement Method: Micro-Purchase (under $10,000)
+Authority: Northlandia Procurement Code § 18-201
+Requirement: Obtain at least one fair and reasonable quote.
+SECTION 6 — APPROVALS
+Requesting Official:   Date:
+Budget Approval:   Date:
+Procurement Approval:   Date:

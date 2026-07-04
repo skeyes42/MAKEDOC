@@ -1,0 +1,33 @@
+STANDARD-TIER AWARD DOCUMENT
+Northlandia Public Procurement Authority
+General Services
+Commercial Item Contract (Standard Tier)
+Award Number: 
+Supplier: 
+Award Date:
+SECTION 1 — CONTRACT FORMATION
+This award document, together with the Supplier’s quotation dated ,forms the entire agreement between the Parties for the supply of the items requested.
+SECTION 2 — CONTRACT ITEMS AND PRICING
+Pricing is firm and fixed for the duration of the Contract
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Motor oil	44333	100	BOX	$200.00	$20,000.00
+2	Gasoline	22344	1000	GAL	$5.00	$5,000.00
+Grand Total: $25,000.00
+SECTION 3— DELIVERY REQUIREMENTS
+Delivery Location:
+Delivery Deadline: Within 10 business days of award
+Delivery Terms: FOB Destination
+SECTION 4 — SUPPLIER OBLIGATIONS
+The Supplier shall perform in accordance with industry standards and the requirements of this Contract.
+The Supplier warrants that all items will be new, free from defects, and conform to the specifications.
+Risk of loss remains with the Supplier until delivery and acceptance.
+SECTION 5 — PAYMENT
+The Authority shall pay valid invoices within 30 days of receipt. Invoices must reference the Award Number and itemize all delivered goods.
+SECTION 6 — LIABILITY
+The Supplier is liable for direct damages arising from its performance. Indirect or consequential damages are excluded.
+SECTION 7 — TERMINATION
+The Authority may terminate this Contract for convenience with written notice. The Supplier will be paid for accepted items delivered up to the date of termination.
+SECTION 8— ADDITIONAL PROVISIONS
+No hazardous materials are involved in this procurement.
+No intellectual property is created under this Contract.
+The Supplier shall comply with all applicable Northlandia laws and regulations.

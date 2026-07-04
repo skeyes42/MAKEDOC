@@ -1,0 +1,5 @@
+.read "C:\Users\skeye\BOOK2\MAKEDOC\db\sql\drop_MAKEDOC_tables.sql"
+.read "C:\Users\skeye\BOOK2\MAKEDOC\db\sql\create_MAKEDOC_tables.sql"
+.read "C:\Users\skeye\BOOK2\MAKEDOC\db\sql\load_DocType_table.sql"
+.read "C:\Users\skeye\BOOK2\MAKEDOC\db\sql\load_NodeHierarchy_table.sql"
+.read "C:\Users\skeye\BOOK2\MAKEDOC\db\sql\load_Node_table.sql"

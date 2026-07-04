@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MakeDoc.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9af1eb85eecf26a90a3ea6e8a300c30066142fdc")]
 [assembly: System.Reflection.AssemblyProductAttribute("MakeDoc.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MakeDoc.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

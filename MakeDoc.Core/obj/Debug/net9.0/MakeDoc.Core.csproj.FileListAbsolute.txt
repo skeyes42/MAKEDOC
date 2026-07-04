@@ -1,11 +1,12 @@
-C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.deps.json
-C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.dll
-C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.pdb
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.csproj.AssemblyReference.cache
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.AssemblyInfoInputs.cache
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.AssemblyInfo.cs
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.csproj.CoreCompileInputs.cache
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.sourcelink.json
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.deps.json
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.dll
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\bin\Debug\net9.0\MakeDoc.Core.pdb
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.dll
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\refint\MakeDoc.Core.dll
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core\obj\Debug\net9.0\MakeDoc.Core.pdb

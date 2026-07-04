@@ -1,0 +1,22 @@
+State of Northlandia
+General Servicese
+ Solicitation No. 
+ Title:
+SECTION 1 — PURPOSE
+The State of Northlandia is soliciting sealed proposals from qualified vendors to provide  for use by state agencies, fleet maintenance facilities, and public schools. The resulting contract will be a fixed-price, indefinite-delivery statewide agreement.
+SECTION 2 — BACKGROUND
+Northlandia agencies procure approximately:
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Paper reams	99998	1000	REAM	$10.00	$10,000.00
+2	Cardboard boxes	11111	1000	BUNDLE	$35.00	$35,000.00
+Grand Total: $45,000.00
+The State seeks to consolidate these purchases under a single competitively awarded contract to reduce administrative overhead and secure volume pricing.
+SECTION 3 — SCOPE OF WORK
+Delivery requreiments
+Delivery to any state agency location within Northlandia within 10 business days of order.
+Emergency deliveries (batteries only) within 48 hours.
+All shipments must include packing slips with CLIN, quantity, and order number.
+SECTION 4 — CONTRACT TYPE
+Fixed-price, indefinite-delivery statewide contract
+Initial term: 2 years
+Renewal options: Two (2) additional 1-year periods

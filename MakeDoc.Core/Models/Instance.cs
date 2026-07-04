@@ -10,7 +10,6 @@ namespace MakeDoc.Core.Models
 
         public string Title { get; set; } = string.Empty ;
 
-        public string OutputFile { get; set; } = string.Empty;
 
         // ── Archive fields ────────────────────────────────────────────
         public bool    IsArchived  { get; set; } = false;

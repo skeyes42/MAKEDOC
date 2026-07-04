@@ -5,6 +5,7 @@ C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.Plum
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.AssemblyInfoInputs.cache
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.AssemblyInfo.cs
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.csproj.CoreCompileInputs.cache
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.sourcelink.json
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.dll
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\refint\MakeDoc.PlumberClient.dll
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.PlumberClient\obj\Debug\net9.0\MakeDoc.PlumberClient.pdb

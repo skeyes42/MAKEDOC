@@ -1,424 +1,223 @@
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\req
 
 === NL-0001.docx ===
-SDT Found  Tag: RequisitionNumber
-SDT Found  Tag: ReqTitle
+Fill-in  Title: Requisition Number, Tag: RequisitionNumber
+Fill-in  Title: Requisition Title, Tag: ReqTitle
 
 === NL-0002.docx ===
-SDT Found  Tag: Division
-SDT Found  Tag: DASContact
-SDT Found  Tag: DASPhone
-SDT Found  Tag: DASemail
+Fill-in  Title: Division, Tag: Division
+Fill-in  Title: DAS Contact, Tag: DASContact
+Fill-in  Title: DAS Phone, Tag: DASPhone
+Fill-in  Title: DAS Email, Tag: DASemail
 
 === NL-0003.docx ===
-No SDT fields found.
-
-=== NL-0004.docx ===
-No SDT fields found.
+Fill-in  Title: Items to purchase, Tag: ItemsToPurchase
 
 === NL-0005.docx ===
-SDT Found  Tag: TotalCost
-
-=== NL-0006.docx ===
-No SDT fields found.
+Fill-in  Title: Total Cost, Tag: TotalCost
 
 === NL-0007.docx ===
-SDT Found  Tag: RequestingOfficial
-SDT Found  Tag: RequestingDate
-SDT Found  Tag: BudgetApproval
-SDT Found  Tag: BudgetDate
-SDT Found  Tag: ProcurementApproval
-SDT Found  Tag: ProcurementDate
+Fill-in  Title: Requesting Official, Tag: RequestingOfficial
+Fill-in  Title: Requesting Date, Tag: RequestingDate
+Fill-in  Title: Budget Approval, Tag: BudgetApproval
+Fill-in  Title: Budget Date, Tag: BudgetDate
+Fill-in  Title: Procurement approval, Tag: ProcurementApproval
+Fill-in  Title: Procurement Date, Tag: ProcurementDate
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\sol
 
 === NL-0014.docx ===
-SDT Found  Tag: SolicitationNumber
-SDT Found  Tag: Title
+Fill-in  Title: Solicitation Number, Tag: SolicitationNumber
+Fill-in  Title: Title, Tag: Title
 
 === NL-0015.docx ===
-SDT Found  Tag: RFQno
-SDT Found  Tag: RFQissueDate
-SDT Found  Tag: RFQresponseDueDate
-
-=== NL-0016.docx ===
-No SDT fields found.
-
-=== NL-0017.docx ===
-No SDT fields found.
-
-=== NL-0018.docx ===
-No SDT fields found.
-
-=== NL-0019.docx ===
-No SDT fields found.
+Fill-in  Title: RFQ Number, Tag: RFQno
+Fill-in  Title: RFQ Issue Date, Tag: RFQissueDate
+Fill-in  Title: RFQ Response Due Date, Tag: RFQresponseDueDate
+Fill-in  Title: Requisition Number, Tag: RequisitionNumber
+Fill-in  Title: Requisition Title, Tag: ReqTitle
+Fill-in  Title: Total Cost, Tag: TotalCost
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\micro\awd
 
 === NL-0025.docx ===
-SDT Found  Tag: SolicitationNumber
+Fill-in  Title: Solicitation Number, Tag: SolicitationNumber
+Fill-in  Title: Title, Tag: Title
 
 === NL-0026.docx ===
-SDT Found  Tag: POnumber
-SDT Found  Tag: VendorName
-SDT Found  Tag: VendorAddress
-SDT Found  Tag: VendorDateIssued
-
-=== NL-0027.docx ===
-No SDT fields found.
-
-=== NL-0028.docx ===
-No SDT fields found.
-
-=== NL-0029.docx ===
-No SDT fields found.
-
-=== NL-0030.docx ===
-No SDT fields found.
-
-=== NL-0031.docx ===
-No SDT fields found.
+Fill-in  Title: PO Number, Tag: POnumber
+Fill-in  Title: Vendor Name, Tag: VendorName
+Fill-in  Title: Vendor Address, Tag: VendorAddress
+Fill-in  Title: Vendor Date Issued, Tag: VendorDateIssued
+Fill-in  Title: RFQ Number, Tag: RFQno
+Fill-in  Title: RFQ Issue Date, Tag: RFQissueDate
+Fill-in  Title: RFQ Response Due Date, Tag: RFQresponseDueDate
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\req
 
 === NL-0038.docx ===
-SDT Found  Tag: ReqNumber
-
-=== NL-0039.docx ===
-No SDT fields found.
-
-=== NL-0040.docx ===
-No SDT fields found.
+Fill-in  Title: Requisition Number, Tag: ReqNumber
+Fill-in  Title: Title, Tag: Title
 
 === NL-0041.docx ===
-SDT Found  Tag: ReqTitle
-SDT Found  Tag: Department
-SDT Found  Tag: RequestionOfficier
-SDT Found  Tag: DateSubmitted
-SDT Found  Tag: RequisitionID
-
-=== NL-0042.docx ===
-No SDT fields found.
-
-=== NL-0043.docx ===
-No SDT fields found.
-
-=== NL-0044.docx ===
-No SDT fields found.
+Fill-in  Title: Requisition Title, Tag: ReqTitle
+Fill-in  Title: Department, Tag: Department
+Fill-in  Title: Requesting Officier, Tag: RequestionOfficier
+Fill-in  Title: Date Submitted, Tag: DateSubmitted
+Fill-in  Title: Requisition ID, Tag: RequisitionID
 
 === NL-0045.docx ===
-SDT Found  Tag: RequestionOfficerName
-SDT Found  Tag: Requesting Officer Signature
-SDT Found  Tag: RequestingOfficerDate
-SDT Found  Tag: DepartmentHead Name
-SDT Found  Tag: DepartmentHeadSignature
-SDT Found  Tag: DepartmentHeadDate
-SDT Found  Tag: ProcurementAuthorityName
-SDT Found  Tag: ProcurementAuthoritySignature
-SDT Found  Tag: ProcurementAuthorityDate
-
-=== NL-0046.docx ===
-No SDT fields found.
+Fill-in  Title: Requesting Officer Name, Tag: RequestionOfficerName
+Fill-in  Title: Requesting Officer Signature, Tag: Requesting Officer Signature
+Fill-in  Title: Requesting Officer Date, Tag: RequestingOfficerDate
+Fill-in  Title: Department Head Name, Tag: DepartmentHead Name
+Fill-in  Title: Department Head Signature, Tag: DepartmentHeadSignature
+Fill-in  Title: Department Head Date, Tag: DepartmentHeadDate
+Fill-in  Title: Procurement Authority Name, Tag: ProcurementAuthorityName
+Fill-in  Title: Procurement Authority Signature, Tag: ProcurementAuthoritySignature
+Fill-in  Title: Procurement Authority Date, Tag: ProcurementAuthorityDate
 
 === NL-0047.docx ===
-SDT Found  Tag: EstimatedTotalCost
-SDT Found  Tag: FundingSource
-SDT Found  Tag: Goods
-SDT Found  Tag: Services
-SDT Found  Tag: OptionalAddOns
-SDT Found  Tag: Contingency
-
-=== NL-0048.docx ===
-No SDT fields found.
-
-=== NL-0049.docx ===
-No SDT fields found.
-
-=== NL-0050.docx ===
-No SDT fields found.
-
-=== NL-0051.docx ===
-No SDT fields found.
+Fill-in  Title: Estimated Total Cost, Tag: EstimatedTotalCost
+Fill-in  Title: Funding Source, Tag: FundingSource
+Fill-in  Title: Goods, Tag: Goods
+Fill-in  Title: Services, Tag: Services
+Fill-in  Title: Optional Add Ons, Tag: OptionalAddOns
+Fill-in  Title: Contingency, Tag: Contingency
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\sol
 
 === NL-0065.docx ===
-SDT Found  Tag: SolicitationNumber
-SDT Found  Tag: IssueDate
-SDT Found  Tag: ResponseDueDate
+Fill-in  Title: Solicitation Number, Tag: SolicitationNumber
+Fill-in  Title: Issue Date, Tag: IssueDate
+Fill-in  Title: Response Due Date, Tag: ResponseDueDate
+Fill-in  Title: Purpose, Tag: Purpose
 
 === NL-0066.docx ===
-No SDT fields found.
+Fill-in  Title: Description Of Items, Tag: DescriptionOfItems
 
 === NL-0070.docx ===
-SDT Found  Tag: SupplierEmail
-SDT Found  Tag: SupplierName
+Fill-in  Title: Supplier Email, Tag: SupplierEmail
+Fill-in  Title: Supplier Name, Tag: SupplierName
 
 === NL-0071.docx ===
-No SDT fields found.
+Fill-in  Title: Additional Information, Tag: AdditionInformation
 
 === NL-0073.docx ===
-SDT Found  Tag: DeliveryLocation
-
-=== NL-0074.docx ===
-No SDT fields found.
-
-=== NL-0075.docx ===
-No SDT fields found.
-
-=== NL-0076.docx ===
-No SDT fields found.
+Fill-in  Title: Delivery Location, Tag: DeliveryLocation
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\std\awd
 
 === NL-0094.docx ===
-SDT Found  Tag: AwardNumber
-SDT Found  Tag: SupplierName
-SDT Found  Tag: AwardDate
+Fill-in  Title: Award Number, Tag: AwardNumber
+Fill-in  Title: Supplier Name, Tag: SupplierName
+Fill-in  Title: Award Date, Tag: AwardDate
 
 === NL-0095.docx ===
-SDT Found  Tag: QuotationDate
-
-=== NL-0096.docx ===
-No SDT fields found.
-
-=== NL-0097.docx ===
-SDT Found  Tag: TotalContractValue
+Fill-in  Title: Quotation Date, Tag: QuotationDate
 
 === NL-0098.docx ===
-SDT Found  Tag: DeliveryLocation
-
-=== NL-0099.docx ===
-No SDT fields found.
-
-=== NL-0102.docx ===
-No SDT fields found.
-
-=== NL-0103.docx ===
-No SDT fields found.
-
-=== NL-0104.docx ===
-No SDT fields found.
+Fill-in  Title: Delivery Location, Tag: DeliveryLocation
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\req
 
 === NL-0116.docx ===
-SDT Found  Tag: RequisitionNumber
+Fill-in  Title: Requisition Number, Tag: RequisitionNumber
+Fill-in  Title: Purpose, Tag: Purpose
 
 === NL-0117.docx ===
-SDT Found  Tag: AgencyContact
-SDT Found  Tag: Agency Phone
-SDT Found  Tag: AgencyEmail
-
-=== NL-0118.docx ===
-No SDT fields found.
+Fill-in  Title: Agency Contact, Tag: AgencyContact
+Fill-in  Title: Agency Phone, Tag: Agency Phone
+Fill-in  Title: Agency Email, Tag: AgencyEmail
 
 === NL-0119.docx ===
-SDT Found  Tag: RequestionOfficialName
-SDT Found  Tag: RequestingOfficialTitle
-SDT Found  Tag: RequestingOfficialSignature
-SDT Found  Tag: RequestingOfficialDate
-SDT Found  Tag: BudgetApprovalName
-SDT Found  Tag: BudgetApprovalTitle
-SDT Found  Tag: BudgetApprovalSignature
-SDT Found  Tag: BudgetApprovalDate
-SDT Found  Tag: ProcurementApprovalName
-SDT Found  Tag: ProcurementApprovalTitle
-SDT Found  Tag: ProcurementApprovalSignature
-SDT Found  Tag: ProcurementApprovalDate
+Fill-in  Title: Requesting Official Name, Tag: RequestionOfficialName
+Fill-in  Title: Requestng Official Title, Tag: RequestingOfficialTitle
+Fill-in  Title: Requesting Official Signature, Tag: RequestingOfficialSignature
+Fill-in  Title: Requesting Official Date, Tag: RequestingOfficialDate
+Fill-in  Title: Budget Approval Name, Tag: BudgetApprovalName
+Fill-in  Title: Budget Approval Title, Tag: BudgetApprovalTitle
+Fill-in  Title: Budget Approval Signature, Tag: BudgetApprovalSignature
+Fill-in  Title: Budget Approval Date, Tag: BudgetApprovalDate
+Fill-in  Title: Procurement Approval Name, Tag: ProcurementApprovalName
+Fill-in  Title: Procurement Approval Title, Tag: ProcurementApprovalTitle
+Fill-in  Title: Procurement Approval Signature, Tag: ProcurementApprovalSignature
+Fill-in  Title: Procurement Approval Date, Tag: ProcurementApprovalDate
 
 === NL-0120.docx ===
-No SDT fields found.
+Fill-in  Title: Description Of Items, Tag: DescriptionOfItems
 
 === NL-0121.docx ===
-No SDT fields found.
-
-=== NL-0122.docx ===
-No SDT fields found.
-
-=== NL-0123.docx ===
-No SDT fields found.
+Fill-in  Title: Description of Items, Tag: DescriptionOfItems
 
 === NL-0124.docx ===
-SDT Found  Tag: EstimatedAnnualSpending
-SDT Found  Tag: CostCenter
-
-=== NL-0125.docx ===
-No SDT fields found.
-
-=== NL-0126.docx ===
-No SDT fields found.
-
-=== NL-0127.docx ===
-No SDT fields found.
+Fill-in  Title: Estimated Annual Spending, Tag: EstimatedAnnualSpending
+Fill-in  Title: Cost Center, Tag: CostCenter
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\sol
 
 === NL-0139.docx ===
-SDT Found  Tag: SolicitationNumber
+Fill-in  Title: Solicitation Number, Tag: SolicitationNumber
+Fill-in  Title: Title, Tag: Title
 
 === NL-0140.docx ===
-No SDT fields found.
-
-=== NL-0141.docx ===
-No SDT fields found.
+Fill-in  Title: Description Of Items, Tag: DescriptionOfItems
 
 === NL-0142.docx ===
-No SDT fields found.
-
-=== NL-0145.docx ===
-No SDT fields found.
+Fill-in  Title: Scope Of Work, Tag: ScopeOfWork
 
 === NL-0146.docx ===
-No SDT fields found.
-
-=== NL-0147.docx ===
-No SDT fields found.
-
-=== NL-0148.docx ===
-No SDT fields found.
-
-=== NL-0149.docx ===
-No SDT fields found.
-
-=== NL-0150.docx ===
-No SDT fields found.
+Fill-in  Title: Vendor Qualifications, Tag: VendorQualifications
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\cmplx\awd
 
 === NL-0163.docx ===
-SDT Found  Tag: ContractNumber
+Fill-in  Title: Contract Number, Tag: ContractNumber
+Fill-in  Title: Title, Tag: Title
 
 === NL-0164.docx ===
-SDT Found  Tag: VendorName
-SDT Found  Tag: AddressLine1
-SDT Found  Tag: AddressLine2
+Fill-in  Title: Vendor Name, Tag: VendorName
+Fill-in  Title: Address Line 1, Tag: AddressLine1
+Fill-in  Title: Address Line 2, Tag: AddressLine2
 
 === NL-0165.docx ===
-SDT Found  Tag: ContractManagerName
-SDT Found  Tag: ContractManagerEmail
-SDT Found  Tag: ContractManagerPhone
-SDT Found  Tag: ContractorManagerName
-SDT Found  Tag: ContractorManagerEmail
-SDT Found  Tag: ContractorManagerPhone
-
-=== NL-0166.docx ===
-No SDT fields found.
-
-=== NL-0167.docx ===
-No SDT fields found.
-
-=== NL-0168.docx ===
-No SDT fields found.
+Fill-in  Title: Contract Manager Name, Tag: ContractManagerName
+Fill-in  Title: Contract Manager Email, Tag: ContractManagerEmail
+Fill-in  Title: Contract Manager Phone, Tag: ContractManagerPhone
+Fill-in  Title: Contractor Manager Name, Tag: ContractorManagerName
+Fill-in  Title: Contractor Manager Email, Tag: ContractorManagerEmail
+Fill-in  Title: Contractor Manager Phone, Tag: ContractorManagerPhone
 
 === NL-0169.docx ===
-SDT Found  Tag: StateName
-SDT Found  Tag: StateTitle
-SDT Found  Tag: StateDate
-SDT Found  Tag: ContractorName
-SDT Found  Tag: ContractorTitle
-SDT Found  Tag: ContractorDate
+Fill-in  Title: State Name, Tag: StateName
+Fill-in  Title: State Title, Tag: StateTitle
+Fill-in  Title: State Date, Tag: StateDate
+Fill-in  Title: Contractor Name, Tag: ContractorName
+Fill-in  Title: Contractor Title, Tag: ContractorTitle
+Fill-in  Title: Contractor Date, Tag: ContractorDate
 
 === NL-0170.docx ===
-No SDT fields found.
+Fill-in  Title: Description Of Items, Tag: DescriptionOfItems
 
 === NL-0171.docx ===
-SDT Found  Tag: BasePeriodStart
-SDT Found  Tag: BasePeriodStop
-
-=== NL-0172.docx ===
-No SDT fields found.
+Fill-in  Title: Base Period Start, Tag: BasePeriodStart
+Fill-in  Title: Base Period Stop, Tag: BasePeriodStop
 
 === NL-0173.docx ===
-No SDT fields found.
-
-=== NL-0174.docx ===
-No SDT fields found.
-
-=== NL-0175.docx ===
-No SDT fields found.
-
-=== NL-0176.docx ===
-No SDT fields found.
-
-=== NL-0177.docx ===
-No SDT fields found.
+Fill-in  Title: Specifications, Tag: Specifications
 
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\dei
 
-=== DEI-0000.docx ===
-No SDT fields found.
-
-=== DEI-0002.docx ===
-No SDT fields found.
-
-=== DEI-0004.docx ===
-No SDT fields found.
-
-=== DEI-0006.docx ===
-No SDT fields found.
-
-=== DEI-0008.docx ===
-No SDT fields found.
-
-=== DEI-0010.docx ===
-No SDT fields found.
-
-=== DEI-0012.docx ===
-No SDT fields found.
-
-=== DEI-0014.docx ===
-No SDT fields found.
-
-=== DEI-0016.docx ===
-No SDT fields found.
-
 Done.
 C:\Users\skeye\BOOK2\MAKEDOC\docs\Clauses and assembled documents\clauses\hazmat
-
-=== HAZ-0000.docx ===
-No SDT fields found.
-
-=== HAZ-0002.docx ===
-No SDT fields found.
-
-=== HAZ-0004.docx ===
-No SDT fields found.
-
-=== HAZ-0006.docx ===
-No SDT fields found.
-
-=== HAZ-0008.docx ===
-No SDT fields found.
-
-=== HAZ-0010.docx ===
-No SDT fields found.
-
-=== HAZ-0012.docx ===
-No SDT fields found.
-
-=== HAZ-0014.docx ===
-No SDT fields found.
-
-=== HAZ-0016.docx ===
-No SDT fields found.
-
-=== HAZ-0018.docx ===
-No SDT fields found.
-
-=== HAZ-0020.docx ===
-No SDT fields found.
-
-=== HAZ-0022.docx ===
-No SDT fields found.
 
 Done.

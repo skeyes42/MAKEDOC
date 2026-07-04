@@ -1,0 +1,127 @@
+State of Northlandia
+General Services
+ Requisition No.
+Title:
+SECTION 1 — REQUISITION OVERVIEW
+Requisition Title: 
+Department / Unit: 
+Requesting Officer: 
+Date Submitted: 
+Requisition Reference ID:
+Purpose of Requisition:
+Provide a concise explanation of the operational need, the problem being solved, or the opportunity being addressed. Include any relevant background or prior approvals.
+SECTION 2 — REQUISITION OVERVIEW
+Describe the goods, services, or mixed procurement being requested. Include:
+Functional requirements
+Expected deliverables
+Any exclusions or non-scope items
+Required service levels (if applicable)
+If both goods and services are included, separate them clearly.
+SECTION 3 — TECHNICAL SPECIFICATIONS
+List all measurable, testable, and unambiguous specifications, such as:
+Materials, dimensions, or performance thresholds
+Compatibility or integration requirements
+Environmental, safety, or industry standards
+Required certifications
+Documentation or manuals to be provided
+SECTION 4 — DESCRIPTION OF ITEMS
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Motor oil	44333	100	BOX	$200.00	$20,000.00
+2	Gasoline	22344	1000	GAL	$5.00	$5,000.00
+Grand Total: $25,000.00
+SECTION 5 — BUDGET AND FUNDING
+Estimated Total Cost: 
+Funding Source:
+Cost Breakdown (if applicable):
+Goods:
+Services:
+Optional Add-Ons:
+Contingency:
+Include assumptions, market research references, or cost-estimation methodology.
+SECTION 6 — PROCUREMENT METHOD AND JUSTIFICATION
+Select the intended procurement method:
+Open Tender
+Restricted Tender
+Request for Quotations
+Direct Award (with justification)
+Framework Call-Off
+Emergency Procurement (if applicable)
+Provide justification based on value, risk, market conditions, statutory requirements, or urgency.
+SECTION 7 — DELIVERY, MILESTONES, AND TIMELINES
+Outline the expected schedule:
+Delivery location(s)
+Delivery deadlines
+Implementation or installation timelines
+Key milestones
+Acceptance testing periods
+Warranty or support durations
+Include dependencies or sequencing constraints.
+SECTION 8 — RISK ASSESSMENT
+Identify procurement-related risks, such as:
+Supply chain instability
+Vendor performance concerns
+Technical or integration challenges
+Budget or funding risks
+Legal or compliance risks
+Operational continuity risks
+For each risk, include likelihood, impact, and mitigation strategy.
+SECTION 9 — COMPLIANCE AND REGULATORY REQUIREMENTS
+List all mandatory compliance obligations, including:
+Northlandia procurement statutes
+Data protection requirements
+Environmental or sustainability standards
+Health and safety regulations
+Sector-specific compliance (e.g., HazMat, IT security)
+Indicate whether vendors must submit supporting documentation.
+SECTION 10 — EVALUATION CRITERIA
+Define the evaluation model and weighting (if applicable):
+Technical merit
+Cost competitiveness
+Past performance
+Delivery capability
+Sustainability or DEI considerations
+Risk profile
+Value-added offerings
+Ensure alignment with the selected procurement method.
+SECTION 11 — VENDOR QUALIFICATIONS
+Specify minimum vendor requirements:
+Legal eligibility
+Financial stability
+Relevant experience
+Certifications or licenses
+Insurance requirements
+References or case studies
+SECTION 12 — CONTRACTUAL TERMS AND CONDITIONS
+Summarize the key contractual expectations that will appear in the award:
+Payment terms
+Delivery obligations
+Performance standards
+Liquidated damages (if applicable)
+Intellectual property rights
+Confidentiality
+Termination rights
+Dispute resolution mechanisms
+This section mirrors the standard-tier boilerplate used across Northlandia.
+SECTION 13 — ATTACHMENTS AND SUPPORTING DOCUMENTS
+Attach any relevant materials:
+Technical drawings
+Bills of materials
+Market research
+Cost estimates
+Risk registers
+Prior approvals
+Draft specifications
+Compliance checklists
+SECTION 14 — APPROVALS
+Requesting Officer:
+Name: 
+Signature:  
+Date:
+Department Head:
+Name: 
+Signature: 
+Date:
+Procurement Authority:
+Name: 
+Signature:  
+Date:

@@ -1,5 +1,5 @@
 ```mermaid
-flowchart LR
+flowchart TD
     %% Direction
     %% LR = landscape orientation
     %% Compact grouping for clarity

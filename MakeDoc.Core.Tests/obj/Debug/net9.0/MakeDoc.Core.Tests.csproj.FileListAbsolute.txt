@@ -90,6 +90,7 @@ C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Te
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Tests.AssemblyInfoInputs.cache
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Tests.AssemblyInfo.cs
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Tests.csproj.CoreCompileInputs.cache
+C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Tests.sourcelink.json
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc..A2C97E78.Up2Date
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\MakeDoc.Core.Tests.dll
 C:\Users\skeye\BOOK2\MAKEDOC\MakeDoc.Core.Tests\obj\Debug\net9.0\refint\MakeDoc.Core.Tests.dll

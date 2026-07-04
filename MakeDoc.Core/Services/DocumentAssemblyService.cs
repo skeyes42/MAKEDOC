@@ -1,4 +1,6 @@
 using System.IO.Compression;
+using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace MakeDoc.Core.Services
@@ -7,41 +9,47 @@ namespace MakeDoc.Core.Services
 	/// Stitches a sequence of DOCX byte arrays into a single assembled DOCX.
 	///
 	/// Algorithm:
-	///   - The first blob is treated as the template (its styles, numbering,
-	///     theme, headers/footers, and sectPr are preserved as-is).
-	///   - For each subsequent blob, the body's child elements are appended
-	///     directly to the template's body. No separators (page breaks,
-	///     horizontal rules, blank paragraphs) are injected by code — any
-	///     section/clause boundary formatting must live in the source DOCX
-	///     for each node. This mirrors the Document Builder convention and
-	///     keeps formatting decisions in the hands of document authors.
-	///   - The template's trailing sectPr is moved to the very end so the
-	///     final document still has well-formed section properties.
+	///   - The first blob is treated as the template. Its zip entries (styles,
+	///     numbering, theme, headers/footers, rels, etc.) are copied verbatim
+	///     into the output; only word/document.xml is replaced with the merged
+	///     version.
+	///   - For each subsequent blob, the body's child elements (minus any sectPr)
+	///     are appended to the template body. No separators are injected -- any
+	///     section/clause boundary formatting must live in the source DOCX.
+	///   - The template's trailing sectPr is moved to the very end so the final
+	///     document has well-formed section properties.
+	///   - All ZIP entries except word/document.xml are copied verbatim from the
+	///     template, including [Content_Types].xml. This preserves the exact bytes
+	///     Word produced and avoids any XML round-trip artefacts (BOMs, declaration
+	///     changes, namespace re-ordering) that cause Word's OPC parser to reject
+	///     the file.
 	///
-	/// Limitations (acceptable when all inputs share the same Word template,
-	/// which is the case for clauses uploaded by UploadNodes.R from the
-	/// procurement template family):
+	/// The entire operation is in-memory; no temporary files are written to disk.
+	///
+	/// Limitations (acceptable when all inputs share the same Word template):
 	///   - styles.xml, numbering.xml, theme.xml are NOT merged across inputs.
-	///     Inputs that reference style or numbering IDs not present in the
-	///     template will render with default styling.
-	///   - word/_rels/document.xml.rels is NOT merged. Inputs containing
-	///     hyperlinks, images, footnotes, or embedded objects will produce
-	///     dangling references unless those rels happen to exist in the
-	///     template.
-	///
-	/// If those limitations bite later, the cleanest upgrade path is to
-	/// replace this service with one built on OpenXmlPowerTools.DocumentBuilder
-	/// (DocumentFormat.OpenXml is already a project dependency).
+	///   - word/_rels/document.xml.rels is NOT merged. Inputs with hyperlinks,
+	///     images, footnotes, or embedded objects may produce dangling references.
 	/// </summary>
 	public class DocumentAssemblyService
 	{
 		private static readonly XNamespace W =
 			"http://schemas.openxmlformats.org/wordprocessingml/2006/main";
 
+		// XmlWriter settings that write UTF-8 WITHOUT a BOM.
+		// Word-produced DOCX files have no BOM in any ZIP entry XML; adding one
+		// causes Word's OPC parser to reject the file.
+		private static readonly XmlWriterSettings NoBomXmlSettings = new()
+		{
+			Encoding           = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false),
+			OmitXmlDeclaration = false,
+			Indent             = false
+		};
+
 		/// <summary>
-		/// Assembles the supplied DOCX blobs into a single DOCX, returned
-		/// as a byte array. Order of <paramref name="docxBlobs"/> determines
-		/// the order of content in the assembled output.
+		/// Assembles the supplied DOCX blobs into a single DOCX byte array.
+		/// Order of <paramref name="docxBlobs"/> determines the order of content
+		/// in the assembled output.
 		/// </summary>
 		public byte[] Assemble(IList<byte[]> docxBlobs)
 		{
@@ -50,92 +58,104 @@ namespace MakeDoc.Core.Services
 				throw new ArgumentException(
 					"At least one DOCX blob is required.", nameof(docxBlobs));
 
-			// All temp scratch lives under a single dir we can wipe on exit.
-			string workDir = Path.Combine(
-				Path.GetTempPath(),
-				"MakeDocAssembly_" + Guid.NewGuid().ToString("N"));
-			string templateDir = Path.Combine(workDir, "template");
-			Directory.CreateDirectory(templateDir);
+			// Build the merged document.xml from all blobs.
+			XDocument mergedDoc = BuildMergedDocument(docxBlobs);
 
-			try
+			using var templateMs = new MemoryStream(docxBlobs[0], writable: false);
+			using var outMs      = new MemoryStream();
+
+			using (var templateZip = new ZipArchive(templateMs, ZipArchiveMode.Read))
+			using (var outZip      = new ZipArchive(outMs,      ZipArchiveMode.Create, leaveOpen: true))
 			{
-				// 1. Extract the first blob as our working template.
-				string templateZipPath = Path.Combine(workDir, "template.docx");
-				File.WriteAllBytes(templateZipPath, docxBlobs[0]);
-				ZipFile.ExtractToDirectory(templateZipPath, templateDir);
-
-				string mainDocXmlPath = Path.Combine(templateDir, "word", "document.xml");
-				if (!File.Exists(mainDocXmlPath))
-					throw new InvalidDataException(
-						"document.xml not found inside the first DOCX blob; " +
-						"input does not look like a valid Word file.");
-
-				XDocument mainDoc = XDocument.Load(mainDocXmlPath);
-				XElement body = mainDoc.Descendants(W + "body").First();
-
-				// Pull the trailing sectPr aside; we'll re-attach at the very end.
-				XElement? trailingSectPr = body.Elements(W + "sectPr").LastOrDefault();
-				trailingSectPr?.Remove();
-
-				// 2. For each subsequent blob, copy its body elements in.
-				for (int i = 1; i < docxBlobs.Count; i++)
+				foreach (var entry in templateZip.Entries)
 				{
-					AppendBodyFromBlob(body, docxBlobs[i]);
-				}
+					var outEntry = outZip.CreateEntry(
+						entry.FullName, CompressionLevel.Fastest);
 
-				// 3. Re-attach the trailing sectPr.
-				if (trailingSectPr != null)
-					body.Add(trailingSectPr);
+					using var inStream  = entry.Open();
+					using var outStream = outEntry.Open();
 
-				// 4. Save document.xml back into the extracted template, then re-zip.
-				mainDoc.Save(mainDocXmlPath);
-
-				string outputPath = Path.Combine(workDir, "assembled.docx");
-				ZipFile.CreateFromDirectory(
-					templateDir,
-					outputPath,
-					CompressionLevel.Fastest,
-					includeBaseDirectory: false);
-
-				return File.ReadAllBytes(outputPath);
-			}
-			finally
-			{
-				// Best-effort cleanup; never throw out of finally.
-				if (Directory.Exists(workDir))
-				{
-					try { Directory.Delete(workDir, recursive: true); }
-					catch { /* leave the temp dir behind rather than crash */ }
+					if (entry.FullName == "word/document.xml")
+						SaveNoBom(mergedDoc, outStream);
+					else
+						inStream.CopyTo(outStream);
 				}
 			}
+
+			return outMs.ToArray();
 		}
 
-		// Reads the body of one DOCX blob and appends its top-level body
-		// elements (minus any sectPr) to <paramref name="targetBody"/>.
-		// No separator is injected — boundary formatting is the
-		// responsibility of the source DOCX for each node.
+		// ─────────────────────────────────────────────────────────────
+		// Private helpers
+		// ─────────────────────────────────────────────────────────────
+
+		private XDocument BuildMergedDocument(IList<byte[]> docxBlobs)
+		{
+			XDocument mainDoc = LoadDocumentXml(docxBlobs[0])
+				?? throw new InvalidDataException(
+					"word/document.xml not found in first DOCX blob; " +
+					"input does not appear to be a valid Word file.");
+
+			XElement body = mainDoc.Descendants(W + "body").First();
+
+			XElement? trailingSectPr = body.Elements(W + "sectPr").LastOrDefault();
+			trailingSectPr?.Remove();
+
+			for (int i = 1; i < docxBlobs.Count; i++)
+				AppendBodyFromBlob(body, docxBlobs[i]);
+
+			SdtFixer.FixInlineTextSdts(body, W);
+			SdtFixer.FixBlockLevelSdts(body, W);
+
+			// LINQ to XML drops namespace declarations that aren't used in any
+			// element or attribute during the load/save round-trip. If mc:Ignorable
+			// still references those now-absent prefix names, Word 365 rejects the
+			// file with "unreadable content". Removing mc:Ignorable is safe — the
+			// extension namespaces it guards are either still present (and Word
+			// knows them) or absent (and Word ignores unknown content by default).
+			XNamespace MC = "http://schemas.openxmlformats.org/markup-compatibility/2006";
+			mainDoc.Root?.Attribute(MC + "Ignorable")?.Remove();
+
+			if (trailingSectPr != null)
+				body.Add(trailingSectPr);
+
+			return mainDoc;
+		}
+
 		private static void AppendBodyFromBlob(XElement targetBody, byte[] docxBlob)
 		{
-			using var ms = new MemoryStream(docxBlob, writable: false);
-			using var archive = new ZipArchive(ms, ZipArchiveMode.Read);
-
-			ZipArchiveEntry? entry = archive.GetEntry("word/document.xml");
-			if (entry == null)
-				return;  // skip malformed input rather than fail the whole assembly
-
-			XDocument fragmentDoc;
-			using (Stream entryStream = entry.Open())
-				fragmentDoc = XDocument.Load(entryStream);
+			XDocument? fragmentDoc = LoadDocumentXml(docxBlob);
+			if (fragmentDoc is null) return;
 
 			XElement fragmentBody = fragmentDoc.Descendants(W + "body").First();
-
-			// sectPr inside an appended fragment would force a section break
-			// with that fragment's page setup — drop them so the template's
-			// section properties win.
 			fragmentBody.Elements(W + "sectPr").Remove();
 
 			foreach (XElement element in fragmentBody.Elements())
 				targetBody.Add(new XElement(element));
+		}
+
+		/// <summary>
+		/// Saves <paramref name="doc"/> to <paramref name="stream"/> using
+		/// UTF-8 encoding WITHOUT a byte-order mark (BOM).
+		/// </summary>
+		private static void SaveNoBom(XDocument doc, Stream stream)
+		{
+			using var writer = XmlWriter.Create(stream, NoBomXmlSettings);
+			doc.WriteTo(writer);
+		}
+
+		private static XDocument? LoadDocumentXml(byte[] docxBlob)
+		{
+			try
+			{
+				using var ms      = new MemoryStream(docxBlob, writable: false);
+				using var archive = new ZipArchive(ms, ZipArchiveMode.Read);
+				var entry = archive.GetEntry("word/document.xml");
+				if (entry is null) return null;
+				using var stream = entry.Open();
+				return XDocument.Load(stream);
+			}
+			catch { return null; }
 		}
 	}
 }

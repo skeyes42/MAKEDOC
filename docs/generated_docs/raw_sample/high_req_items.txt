@@ -1,0 +1,2 @@
+[high_req.txt] | Line #: 1 | Description: Paper reams | NAICS: 99998 | Qty: 1000 | Unit: REAM | Unit Price: $10.00 | Extended: $10,000.00
+[high_req.txt] | Line #: 2 | Description: Cardboard boxes | NAICS: 11111 | Qty: 1000 | Unit: BUNDLE | Unit Price: $35.00 | Extended: $35,000.00

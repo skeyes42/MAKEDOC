@@ -1,0 +1,31 @@
+State of Northlandia
+General Services
+  Solicitation No. 
+  Title:
+SECTION 1 — RFQ AND REQUISITION INFORMATION
+RFQ No.:
+Issue Date:
+Response Due:
+Procurement Method: Informal Request for Quote
+Requisition No.:
+Requisition Title:
+Total Cost:
+SECTION 2 — ITEMS REQUESTED
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Pencils	44567	100	BOX	$20.00	$2,000.00
+2	Batteries	55045	100	EA	$225.00	$22,500.00
+3	Rulers	93942	20	BOX	$15.00	$300.00
+Grand Total: $24,800.00
+SECTION 3 — DELIVERY REQUIREMENTS
+Delivery required within 5 business days.
+Delivery location: General Services, 45 Commerce Road, Northlandia City.
+FOB Destination.
+SECTION 4 — QUOTE SUBMISSION
+Vendors shall submit:
+• Unit price and total price
+• Delivery timeframe
+• Warranty information
+• Vendor contact information
+SECTION 5 — BASIS OF AWARD
+Award will be made to the lowest-priced, responsive quote that meets the
+minimum specifications.

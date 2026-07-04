@@ -143,6 +143,39 @@ namespace MakeDoc.Core.Services
 		}
 
 		// ─────────────────────────────────────────────
+		// INSERT USER CLAUSE
+		// Writes a new UC- node row produced by the Generate Document
+		// procedure. IsUserClause is always 1. DerivedFrom records the
+		// source NodeID when the UC- row was produced by an in-session edit
+		// of an existing canonical clause; null for fresh user-inserted files.
+		// UC- rows are never updated in place — each Generate call creates
+		// new rows even when the source was already a UC- node.
+		// ─────────────────────────────────────────────
+		public void InsertUserClause(
+			string  nodeId,
+			string  nodeType,
+			string? title,
+			byte[]? content,
+			string? derivedFrom)
+		{
+			using var connection = _db.OpenConnection();
+			using var cmd = connection.CreateCommand();
+			cmd.CommandText = @"
+                INSERT INTO Node
+                    (NodeID, NodeType, Title, Content, Sequence, IsUserClause, DerivedFrom)
+                VALUES
+                    (@id, @type, @title, @content, 0, 1, @derivedFrom)";
+
+			cmd.Parameters.AddWithValue("@id",          nodeId);
+			cmd.Parameters.AddWithValue("@type",         nodeType);
+			cmd.Parameters.AddWithValue("@title",        (object?)title       ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@content",      (object?)content     ?? DBNull.Value);
+			cmd.Parameters.AddWithValue("@derivedFrom",  (object?)derivedFrom ?? DBNull.Value);
+
+			cmd.ExecuteNonQuery();
+		}
+
+		// ─────────────────────────────────────────────
 		// MAP ROW → NODE
 		// ─────────────────────────────────────────────
 		private static Node MapRow(SqliteDataReader reader)

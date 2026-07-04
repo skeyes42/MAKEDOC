@@ -1,0 +1,98 @@
+State of NorthLandia
+General Services
+Contract No.
+Title:
+SECTION 1 — PARTIES
+This Contract is entered into between:
+State of Northlandia, Department of Administrative Services (DAS)
+123 Capitol Avenue
+Northlandia City, NL 00001
+(“the State”)
+and
+Vendor Name
+Address Line 1
+Address Line 2
+(“the Contractor”)
+SECTION 2 — PURPOSE
+The purpose of this Contract is to establish a statewide, fixed-price,
+indefinite-delivery agreement for the supply and delivery of:
+The Contract supports the needs of state agencies, fleet maintenance
+facilities, and public schools.
+SECTION 3 — TERM OF CONTRACT
+Base Period: Start:     Stop:
+Renewal Options: Two (2) additional one-year periods, exercised at the
+sole discretion of the State
+Maximum Contract Duration: Four (4) years
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Paper reams	99998	1000	REAM	$10.00	$10,000.00
+2	Cardboard boxes	11111	1000	BUNDLE	$35.00	$35,000.00
+Grand Total: $45,000.00
+Note: Estimated quantities are not guaranteed. Orders will be placed
+on an as-needed basis.
+SECTION 5 — SPECIFICATIONS
+SECTION 6 — ORDERING AND DELIVERY
+Ordering
+Orders will be placed by authorized State agencies through:
+• The Contractor’s online ordering portal, or
+• Electronic purchase order (E-PO) issued by DAS
+Delivery Requirements
+• Standard delivery within 10 business days
+• Emergency delivery within 48 hours
+• Delivery to any State location listed in Attachment B
+• All shipments must include packing slips with CLIN, quantity, and PO number
+Delivery Charges
+All deliveries shall be FOB Destination, freight prepaid and included
+in the unit price.
+SECTION 7 — BATTERY RECYCLING PROGRAM
+The Contractor shall:
+• Provide recycling containers upon request
+• Maintain documentation of compliant disposal
+• Submit quarterly recycling reports to DAS
+SECTION 8 — CONTRACTOR QUALIFICATIONS
+The Contractor represents and warrants that it:
+• Is an authorized distributor for proposed products
+• Maintains the capacity to deliver statewide
+• Has an active recycling program
+• Has completed at least three similar contracts in the past five years
+SECTION 9 — PERFORMANCE STANDARDS
+• On-time delivery rate: ≥ 95%
+• Product defect rate: ≤ 1%
+• Emergency delivery compliance: ≥ 98%
+• Customer service response within 1 business day
+Failure to meet these standards may result in corrective action or
+non-renewal.
+SECTION 10 — CONTRACT ADMINISTRATION
+State Contract Manager
+Name:
+Email:
+Phone:
+Contractor Contract Manager
+Name:
+Email:
+Phone:
+SECTION 11 — MODIFICATIONS
+Contract modifications must be:
+• In writing
+• Signed by both parties
+• Issued as a formal amendment by DAS
+SECTION 12 — TERMINATION
+The State may terminate this Contract:
+• For convenience with 30 days’ notice
+• For cause with 10 days’ notice if the Contractor fails to cure deficiencies
+SECTION 13 — ATTACHMENTS
+The following attachments are incorporated by reference:
+• Attachment A: Technical Specifications
+• Attachment B: Delivery Locations
+• Attachment C: Pricing Sheets (Base + Option Years)
+• Attachment D: Standard Terms and Conditions for Northlandia Supply Contracts
+SECTION 14 — SIGNATURES
+For the State of Northlandia:
+__________________________________
+Name
+Title
+Date
+For Contractor:
+__________________________________
+Name
+Title
+Date

@@ -33,48 +33,44 @@ namespace DocxSdtScanner
                 return;
             }
 
-            foreach (var file in docxFiles)
-            {
-                Console.WriteLine($"\n=== {Path.GetFileName(file)} ===");
+			foreach (var file in docxFiles)
+			{
+				try
+				{
+					using (WordprocessingDocument doc = WordprocessingDocument.Open(file, false))
+					{
+						var body = doc.MainDocumentPart.Document.Body;
 
-                try
-                {
-                    using (WordprocessingDocument doc = WordprocessingDocument.Open(file, false))
-                    {
-                        var body = doc.MainDocumentPart.Document.Body;
+						var sdts = body.Descendants<SdtElement>().ToList();
 
-                        // All SDT elements in the document
-                        var sdts = body.Descendants<SdtElement>().ToList();
+						var fillins = sdts
+							.Select(sdt => new
+							{
+								Title = sdt.SdtProperties?.GetFirstChild<SdtAlias>()?.Val?.Value,
+								Tag = sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value
+							})
+							.Where(x => !string.IsNullOrWhiteSpace(x.Title))
+							.ToList();
 
-                        // Keep only those with a non-empty Alias (= fill-ins)
-                        var fillins = sdts
-                            .Select(sdt => new
-                            {
-                            Title = sdt.SdtProperties?.GetFirstChild<SdtAlias>()?.Val?.Value,
-                            Tag = sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value
-                            })
-                            .Where(x => !string.IsNullOrWhiteSpace(x.Title))
-                            .ToList();
+						// ✅ Only print the header if there are fill-ins
+						if (fillins.Any())
+						{
+							Console.WriteLine($"\n=== {Path.GetFileName(file)} ===");
+							foreach (var f in fillins)
+							{
+								Console.WriteLine($"Fill-in → Title: {f.Title}, Tag: {f.Tag ?? "(none)"}");
+							}
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine($"Error reading {file}: {ex.Message}");
+				}
+			}
 
-                        if (!fillins.Any())
-                        {
-                            // Console.WriteLine("No fill-ins found.");
-                            continue;
-                        }
 
-                        foreach (var f in fillins)
-                        {
-                            Console.WriteLine($"Fill-in → Title: {f.Title}, Tag: {f.Tag ?? "(none)"}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error reading {file}: {ex.Message}");
-                }
-            }
-
-            Console.WriteLine("\nDone.");
+			Console.WriteLine("\nDone.");
         }
     }
 }

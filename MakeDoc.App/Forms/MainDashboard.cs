@@ -1,9 +1,12 @@
 using MakeDoc.App.Forms.Admin;
 using MakeDoc.App.Forms.Analytics;
-using MakeDoc.App.Forms.Archive;
 using MakeDoc.App.Forms.Assembly;
+using MakeDoc.App.Forms.Lineitem;
 using MakeDoc.Core.Data;
 using MakeDoc.Core.Models;
+using MakeDoc.Core.Services;
+using System.Diagnostics;
+using System.Text.Json;
 
 namespace MakeDoc.App.Forms
 {
@@ -28,11 +31,18 @@ namespace MakeDoc.App.Forms
         private readonly MakDocDb _db;
 
         // ── Controls ──────────────────────────────────
-        private MenuStrip _menu = null!;
-        private TableLayoutPanel _mainLayout = null!;
-        private Panel _headerPanel = null!;
-        private ListView _lvInstances = null!;
-        private Label _lblStatus = null!;
+        private MenuStrip        _menu        = null!;
+        private TableLayoutPanel _mainLayout  = null!;
+        private Panel            _headerPanel = null!;
+        private ListView         _lvInstances = null!;
+        private Label            _lblStatus   = null!;
+        private ContextMenuStrip _ctxInstances = null!;
+
+        // ── Dashboard context-menu items (stored for enable/visibility control) ──
+        private ToolStripMenuItem _miLineItems   = null!;
+        private ToolStripMenuItem _miBuildFrom   = null!;
+        private ToolStripMenuItem _miBuildToSol  = null!;
+        private ToolStripMenuItem _miBuildToAwd  = null!;
 
         public MainDashboard()
         {
@@ -103,20 +113,21 @@ namespace MakeDoc.App.Forms
 
             var toolsMenu = new ToolStripMenuItem("&Tools");
 
-            var miAssembly = new ToolStripMenuItem("&Assembly...");
+			var miLineItem = new ToolStripMenuItem("&Line Items...");
+			miLineItem.Click += (s, e) =>
+			{
+				using var form = new LineItemForm();
+				form.ShowDialog(this);
+				LoadInstances(); // refresh after possible new instance
+			};
+
+
+			var miAssembly = new ToolStripMenuItem("&Assembly...");
             miAssembly.Click += (s, e) =>
             {
                 using var form = new AssemblyForm();
                 form.ShowDialog(this);
                 LoadInstances(); // refresh after possible new instance
-            };
-
-            var miArchive = new ToolStripMenuItem("Ar&chive...");
-            miArchive.Click += (s, e) =>
-            {
-                using var form = new ArchiveForm();
-                form.ShowDialog(this);
-                LoadInstances(); // refresh in case archive status changed
             };
 
             var miAnalytics = new ToolStripMenuItem("A&nalytics...");
@@ -126,8 +137,8 @@ namespace MakeDoc.App.Forms
                 form.ShowDialog(this);
             };
 
-            toolsMenu.DropDownItems.Add(miAssembly);
-            toolsMenu.DropDownItems.Add(miArchive);
+            toolsMenu.DropDownItems.Add(miLineItem);
+			toolsMenu.DropDownItems.Add(miAssembly);
             toolsMenu.DropDownItems.Add(miAnalytics);
             toolsMenu.DropDownItems.Add(new ToolStripSeparator());
 
@@ -189,19 +200,14 @@ namespace MakeDoc.App.Forms
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            _lvInstances.Columns.Add("Generated",       170);
-            _lvInstances.Columns.Add("Document type",   320);
-            _lvInstances.Columns.Add("Tier",            100);
-            _lvInstances.Columns.Add("Archived",         90);
+            _lvInstances.Columns.Add("Generated",       155);
+            _lvInstances.Columns.Add("Title",           200);
+            _lvInstances.Columns.Add("Document type",   240);
+            _lvInstances.Columns.Add("Tier",             80);
+            _lvInstances.Columns.Add("Archived",         80);
 
-            // Block selection of archived rows — they're context-only in this slice.
-            _lvInstances.ItemSelectionChanged += (s, e) =>
-            {
-                if (e.IsSelected && e.Item?.Tag is Instance inst && inst.IsArchived)
-                {
-                    e.Item.Selected = false;
-                }
-            };
+            BuildInstanceContextMenu();
+            _lvInstances.ContextMenuStrip = _ctxInstances;
 
             _mainLayout.Controls.Add(_lvInstances, 0, 1);
         }
@@ -251,6 +257,7 @@ namespace MakeDoc.App.Forms
                     {
                         Tag = inst
                     };
+                    item.SubItems.Add(inst.Title ?? "");
                     item.SubItems.Add(inst.DocTypeName ?? inst.DocTypeID);
                     item.SubItems.Add(inst.DocTypeTier ?? "");
                     item.SubItems.Add(inst.IsArchived ? "Archived" : "");
@@ -278,6 +285,317 @@ namespace MakeDoc.App.Forms
             if (DateTime.TryParse(raw, out var dt))
                 return dt.ToLocalTime().ToString("yyyy-MM-dd HH:mm");
             return raw;
+        }
+
+        // ── Instance context menu ─────────────────────
+        private void BuildInstanceContextMenu()
+        {
+            _ctxInstances = new ContextMenuStrip { Font = new Font("Segoe UI", 9.5f) };
+
+            _miBuildFrom  = new ToolStripMenuItem("Build from selected document");
+            _miBuildToSol = new ToolStripMenuItem("Build to solicitation...");
+            _miBuildToAwd = new ToolStripMenuItem("Build to award...");
+            var miView      = new ToolStripMenuItem("View document");
+            var miSep       = new ToolStripSeparator();
+            var miArchive   = new ToolStripMenuItem("Archive document");
+            var miUnarchive = new ToolStripMenuItem("Un-archive document");
+
+            _miBuildFrom.Click  += OnBuildFromSelected;
+            _miBuildToSol.Click += OnBuildToSolicitation;
+            _miBuildToAwd.Click += OnBuildToAward;
+            miView.Click        += OnViewSelected;
+            miArchive.Click     += OnArchiveSelected;
+            miUnarchive.Click   += OnUnarchiveSelected;
+
+            _ctxInstances.Items.Add(_miBuildFrom);
+            _ctxInstances.Items.Add(_miBuildToSol);
+            _ctxInstances.Items.Add(_miBuildToAwd);
+            _ctxInstances.Items.Add(miView);
+            _ctxInstances.Items.Add(miSep);
+            _ctxInstances.Items.Add(miArchive);
+            _ctxInstances.Items.Add(miUnarchive);
+
+            // Show/hide items based on archive state and document type.
+            _ctxInstances.Opening += (s, e) =>
+            {
+                var inst = GetSelectedInstance();
+                if (inst is null) { e.Cancel = true; return; }
+
+                bool active = !inst.IsArchived;
+                bool isReq  = inst.DocTypeID.StartsWith("req-", StringComparison.OrdinalIgnoreCase);
+                bool isSol  = inst.DocTypeID.StartsWith("sol-", StringComparison.OrdinalIgnoreCase);
+
+                _miBuildFrom.Visible  = active;
+                _miBuildToSol.Visible = active && isReq;
+                _miBuildToAwd.Visible = active && isSol;
+                miView.Visible        = active;
+                miSep.Visible         = active;
+                miArchive.Visible     = active;
+                miUnarchive.Visible   = !active;
+            };
+        }
+
+        private void OnArchiveSelected(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null || inst.IsArchived) return;
+
+            _db.SetArchiveStatus(inst.InstanceID, archived: true);
+            LoadInstances();
+            SetStatus($"Document archived.", success: true);
+        }
+
+        private void OnUnarchiveSelected(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null || !inst.IsArchived) return;
+
+            _db.SetArchiveStatus(inst.InstanceID, archived: false);
+            LoadInstances();
+            SetStatus($"Document un-archived.", success: true);
+        }
+
+        private Instance? GetSelectedInstance()
+        {
+            if (_lvInstances.SelectedItems.Count == 0) return null;
+            return _lvInstances.SelectedItems[0].Tag as Instance;
+        }
+
+        private void OnBuildFromSelected(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null) return;
+
+            using var form = new AssemblyForm(inst);
+            form.ShowDialog(this);
+            LoadInstances();
+        }
+
+        private void OnBuildToSolicitation(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null || inst.IsArchived) return;
+
+            var solTypes = _db.GetAllDocTypes()
+                .Where(dt => dt.DocTypeID.StartsWith("sol-", StringComparison.OrdinalIgnoreCase))
+                .OrderBy(dt => dt.Name)
+                .ToList();
+
+            if (solTypes.Count == 0)
+            {
+                MessageBox.Show(
+                    "No solicitation document types are defined in the database.",
+                    "Build To Solicitation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var target = ShowDocTypePicker("Select target solicitation type:", solTypes);
+            if (target is null) return;
+
+            using var form = new AssemblyForm(inst, target);
+            form.ShowDialog(this);
+            LoadInstances();
+        }
+
+        private void OnBuildToAward(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null || inst.IsArchived) return;
+
+            var awdTypes = _db.GetAllDocTypes()
+                .Where(dt => dt.DocTypeID.StartsWith("awd-", StringComparison.OrdinalIgnoreCase))
+                .OrderBy(dt => dt.Name)
+                .ToList();
+
+            if (awdTypes.Count == 0)
+            {
+                MessageBox.Show(
+                    "No award document types are defined in the database.",
+                    "Build To Award",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var target = ShowDocTypePicker("Select target award type:", awdTypes);
+            if (target is null) return;
+
+            using var form = new AssemblyForm(inst, target);
+            form.ShowDialog(this);
+            LoadInstances();
+        }
+
+        /// <summary>
+        /// Shows a modal picker listing the supplied DocTypes and returns the
+        /// one the user selected, or null if the user cancelled.
+        /// </summary>
+        private DocType? ShowDocTypePicker(string prompt, List<DocType> docTypes)
+        {
+            using var dlg = new Form
+            {
+                Text            = "Select Document Type",
+                Size            = new Size(380, 240),
+                StartPosition   = FormStartPosition.CenterParent,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox     = false,
+                MinimizeBox     = false,
+                BackColor       = Color.White,
+                Font            = new Font("Segoe UI", 9.5f)
+            };
+
+            dlg.Controls.Add(new Label
+            {
+                Text     = prompt,
+                AutoSize = true,
+                Location = new Point(16, 16)
+            });
+
+            var lst = new ListBox
+            {
+                Location       = new Point(16, 42),
+                Size           = new Size(336, 100),
+                BorderStyle    = BorderStyle.FixedSingle,
+                IntegralHeight = false
+            };
+            foreach (var dt in docTypes) lst.Items.Add(dt.Name);
+            if (lst.Items.Count > 0) lst.SelectedIndex = 0;
+            dlg.Controls.Add(lst);
+
+            var btnOK = new Button
+            {
+                Text      = "Select",
+                Location  = new Point(172, 160),
+                Size      = new Size(80, 30),
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.FromArgb(30, 30, 30),
+                ForeColor = Color.White
+            };
+            btnOK.FlatAppearance.BorderSize = 0;
+            btnOK.Click += (_, _) => dlg.DialogResult = DialogResult.OK;
+
+            var btnCancel = new Button
+            {
+                Text      = "Cancel",
+                Location  = new Point(264, 160),
+                Size      = new Size(80, 30),
+                FlatStyle = FlatStyle.Flat
+            };
+            btnCancel.Click += (_, _) => dlg.DialogResult = DialogResult.Cancel;
+
+            dlg.Controls.Add(btnOK);
+            dlg.Controls.Add(btnCancel);
+            dlg.AcceptButton = btnOK;
+            dlg.CancelButton = btnCancel;
+
+            return dlg.ShowDialog(this) == DialogResult.OK && lst.SelectedIndex >= 0
+                ? docTypes[lst.SelectedIndex]
+                : null;
+        }
+
+        private void OnViewSelected(object? sender, EventArgs e)
+        {
+            var inst = GetSelectedInstance();
+            if (inst is null) return;
+
+            if (string.IsNullOrWhiteSpace(inst.NodeList))
+            {
+                MessageBox.Show(
+                    "This document has no node list and cannot be re-assembled.",
+                    "View Document", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                SetStatus("Re-assembling document for viewing...", success: true);
+
+                var nodeIds = JsonSerializer.Deserialize<List<string>>(inst.NodeList);
+                if (nodeIds is null || nodeIds.Count == 0)
+                {
+                    SetStatus("Node list is empty — nothing to assemble.", success: false);
+                    return;
+                }
+
+                var nodeService     = new NodeService(_db);
+                var assemblyService = new DocumentAssemblyService();
+                var fillinService   = new FillinService();
+
+                // Deserialize stored fill-in values (may be null/empty for old instances).
+                IReadOnlyDictionary<string, string> fillinValues =
+                    new Dictionary<string, string>();
+                if (!string.IsNullOrWhiteSpace(inst.FillinData))
+                {
+                    try
+                    {
+                        fillinValues = JsonSerializer.Deserialize<Dictionary<string, string>>(
+                            inst.FillinData)
+                            ?? new Dictionary<string, string>();
+                    }
+                    catch { /* best effort — leave empty */ }
+                }
+
+                var blobs   = new List<byte[]>();
+                var missing = new List<string>();
+                int secNo   = 0;
+
+                foreach (var id in nodeIds)
+                {
+                    var node = nodeService.GetById(id);
+                    if (node?.Content is null || node.Content.Length == 0)
+                    {
+                        missing.Add(id);
+                        continue;
+                    }
+
+                    byte[] blob = node.Content;
+
+                    if (node.NodeType == NodeTypes.Clause)
+                    {
+                        secNo++;
+
+                        // Apply stored SDT fill-ins.
+                        if (fillinValues.Count > 0)
+                            blob = fillinService.SubstituteFillins(blob, fillinValues);
+
+                        // Apply {SecNo} plain-text fill-in.
+                        blob = fillinService.SubstitutePlainText(
+                            blob, "{SecNo}", secNo.ToString());
+                    }
+
+                    blobs.Add(blob);
+                }
+
+                if (missing.Count > 0)
+                {
+                    string preview = string.Join(", ", missing.Take(5));
+                    if (missing.Count > 5) preview += "...";
+                    SetStatus(
+                        $"Warning: {missing.Count} node(s) had no content (skipped): {preview}",
+                        success: false);
+                }
+
+                if (blobs.Count == 0)
+                {
+                    SetStatus("Cannot view — no content blobs available.", success: false);
+                    return;
+                }
+
+                byte[] assembled = assemblyService.Assemble(blobs);
+
+                string src = inst.InstanceID.Length >= 8 ? inst.InstanceID[..8] : inst.InstanceID;
+                string tmpPath = Path.Combine(
+                    Path.GetTempPath(),
+                    $"MAKEDOC_view_{src}_{DateTime.Now:yyyyMMddHHmmss}.docx");
+
+                File.WriteAllBytes(tmpPath, assembled);
+                Process.Start(new ProcessStartInfo(tmpPath) { UseShellExecute = true });
+
+                SetStatus($"Opened for viewing: {Path.GetFileName(tmpPath)}", success: true);
+            }
+            catch (Exception ex)
+            {
+                SetStatus($"Error viewing document: {ex.Message}", success: false);
+            }
         }
 
         // ── Status Bar ────────────────────────────────

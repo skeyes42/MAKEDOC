@@ -1,0 +1,31 @@
+{
+  "DocTitle": "Buy pencils, batteries and rulers",
+  "ReqNumber": "123456789",
+  "Phase": "",
+  "ToPhase": "solicitation",
+  "FromPhase": "requisition",
+  "Tier": "complex",
+  "lineItems": [
+    {
+      "Description": "Pencils",
+      "NAICS": 44566,
+      "Unit": "BOX",
+      "Qty": 10,
+      "UnitPrice": 50.00
+    },
+    {
+      "Description": "Batteries",
+      "NAICS": 44544,
+      "Unit": "EA",
+      "Qty": 20,
+      "UnitPrice": 125.00
+    },
+    {
+      "Description": "Rulers",
+      "NAICS": 88345,
+      "Unit": "BOX",
+      "Qty": 10,
+      "UnitPrice": 25.00
+    }
+  ]
+}

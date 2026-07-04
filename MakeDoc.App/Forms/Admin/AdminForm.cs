@@ -305,8 +305,8 @@ namespace MakeDoc.App.Forms.Admin
 			};
 			_cboNodeTypeFilter.Items.Add("All");
 			foreach (var t in new[] {
-				NodeTypes.HeaderNode, NodeTypes.Section,   NodeTypes.Subsection,
-				NodeTypes.Clause,     NodeTypes.Template,  NodeTypes.Document })
+				NodeTypes.HeaderNode, NodeTypes.Section,   NodeTypes.Subsection })
+				//NodeTypes.Clause,     NodeTypes.Template,  NodeTypes.Document })
 				_cboNodeTypeFilter.Items.Add(t);
 			_cboNodeTypeFilter.SelectedIndex = 0;
 			_cboNodeTypeFilter.SelectedIndexChanged += (_, _) => ApplyNodeFilter();
@@ -402,10 +402,10 @@ namespace MakeDoc.App.Forms.Admin
 		private void PopulateNodeCombos()
 		{
 			var headerNodes   = _db.GetNodesByType(NodeTypes.HeaderNode);
-			var templateNodes = _db.GetNodesByType(NodeTypes.Template);
+			//var templateNodes = _db.GetNodesByType(NodeTypes.Template);
 
 			FillNodeCombo(_cboHeaderNode,   headerNodes);
-			FillNodeCombo(_cboTemplateBlob, templateNodes);
+			//FillNodeCombo(_cboTemplateBlob, templateNodes);
 		}
 
 		private static void FillNodeCombo(ComboBox cbo, List<Node> nodes)
@@ -474,7 +474,7 @@ namespace MakeDoc.App.Forms.Admin
 			_txtInclusionTags.Text = dt.InclusionTags ?? "";
 
 			SelectNodeCombo(_cboHeaderNode,   dt.HeaderNodeID);
-			SelectNodeCombo(_cboTemplateBlob, dt.TemplateBlobID);
+			//SelectNodeCombo(_cboTemplateBlob, dt.TemplateBlobID);
 
 			_btnDelete.Enabled = true;
 			SetStatus($"Editing: {dt.Name}", success: true);
@@ -535,7 +535,7 @@ namespace MakeDoc.App.Forms.Admin
 				DocTypeID      = id,
 				Name           = name,
 				HeaderNodeID   = string.IsNullOrWhiteSpace(hdr)  ? null : hdr,
-				TemplateBlobID = string.IsNullOrWhiteSpace(tmpl) ? null : tmpl,
+				//TemplateBlobID = string.IsNullOrWhiteSpace(tmpl) ? null : tmpl,
 				InclusionTags  = string.IsNullOrWhiteSpace(_txtInclusionTags.Text)
 				                     ? null
 				                     : _txtInclusionTags.Text.Trim()

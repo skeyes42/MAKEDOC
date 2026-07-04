@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MAKEDOC Fill-in Audit</title>
+  <style>
+    body   { font-family: Segoe UI, Arial, sans-serif; margin: 40px; color: #222; }
+    h1     { color: #003366; }
+    h2     { color: #003366; border-bottom: 1px solid #ccc; padding-bottom: 4px; margin-top: 36px; }
+    h3     { color: #555; }
+    table  { border-collapse: collapse; width: 100%; margin-bottom: 24px; font-size: 0.9em; }
+    th     { background: #003366; color: #fff; padding: 7px 10px; text-align: left; }
+    td     { padding: 6px 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+    tr:nth-child(even) td { background: #f5f8fc; }
+    .badge-bad  { background: #c0392b; color: #fff; padding: 2px 7px; border-radius: 4px; font-size: 0.85em; }
+    .badge-ok   { background: #27ae60; color: #fff; padding: 2px 7px; border-radius: 4px; font-size: 0.85em; }
+    .badge-warn { background: #e67e22; color: #fff; padding: 2px 7px; border-radius: 4px; font-size: 0.85em; }
+    .stat-box  { display:inline-block; background:#f0f4fa; border:1px solid #c5d3e8;
+                 border-radius:6px; padding:14px 24px; margin:8px 8px 8px 0; }
+    .stat-num  { font-size:2em; font-weight:bold; color:#003366; display:block; }
+    .stat-lbl  { font-size:0.85em; color:#555; }
+    pre        { background:#f4f4f4; padding:10px; border-radius:4px; font-size:0.88em; }
+    .section-note { background:#fffbe6; border-left:4px solid #f0ad00;
+                    padding:10px 16px; margin-bottom:16px; font-size:0.92em; }
+  </style>
+</head>
+<body>
+
+<h1>MAKEDOC &mdash; Fill-in Variable Audit</h1>
+<p>Generated: 2026-06-22 15:33 &nbsp;|&nbsp;
+   Database: <code>C:/Users/skeye/BOOK2/MAKEDOC/db/MAKEDOC.db</code></p>
+
+<h2>Summary</h2>
+<div>
+  <div class="stat-box">
+    <span class="stat-num">98</span>
+    <span class="stat-lbl">Nodes with tags</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num">6</span>
+    <span class="stat-lbl">Unique tag strings found</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num" style="color:#c0392b">32</span>
+    <span class="stat-lbl">Nodes with malformed {SecNo}</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-num" style="color:#e67e22">2</span>
+    <span class="stat-lbl">Nodes with lineitem variants</span>
+  </div>
+</div>
+
+<h2>All Unique Tags Discovered</h2>
+<p>Every distinct <code>{...}</code> string found across all nodes:</p>
+<pre>{ {SecNo}
+{{SecNo}
+{lineitem}
+{lineitems}
+{SecNo}
+{SECNO}</pre>
+
+<h2>Canonical Tag Usage <span class="badge-ok">OK</span></h2>
+<p>These tags match the declared canonical set and will substitute correctly.</p>
+<table id="tbl-canon"><thead><tr><th>Tag</th><th>NodeCount</th></tr></thead><tbody><tr><td>{SecNo}</td><td>68</td></tr><tr><td>{lineitem}</td><td> 8</td></tr></tbody></table>
+<h2>Malformed {SecNo} Tags <span class="badge-bad">ACTION REQUIRED</span></h2>
+<div class="section-note">
+  <strong>Problem:</strong> FillinService searches for the exact string
+  <code>{SecNo}</code>. Any variation &mdash; wrong case, extra braces, stray
+  spaces &mdash; causes a silent miss: the raw tag is printed in the assembled
+  document instead of the section number.<br><br>
+  <strong>Fix:</strong> In each affected node blob, replace the bad tag with
+  <code>{SecNo}</code>. The three variants found are shown below.
+</div>
+
+<h3>Variants found</h3>
+<table>
+  <thead><tr><th>Bad tag</th><th>Likely cause</th><th>Affected nodes</th></tr></thead>
+  <tbody>
+    <tr><td><code>{{SecNo}</code></td>
+        <td>Extra leading <code>{</code> &mdash; probably a copy/paste or template merge artifact</td>
+        <td>16</td></tr>
+    <tr><td><code>{ {SecNo}</code></td>
+        <td>Stray space before the tag name</td>
+        <td>3</td></tr>
+    <tr><td><code>{SECNO}</code></td>
+        <td>All-caps &mdash; case mismatch with the substitution key</td>
+        <td>13</td></tr>
+  </tbody>
+</table>
+
+<h3>Affected nodes (32 rows)</h3>
+<table id="tbl-secno"><thead><tr><th>NodeID</th><th>Title</th><th>Tag</th><th>DocTypes</th></tr></thead><tbody><tr><td>NL-0005</td><td>ESTIMATED COST</td><td>{ {SecNo}</td><td>req-micro (micro)</td></tr><tr><td>NL-0071</td><td>DESCRIPTION OF GOODS</td><td>{ {SecNo}</td><td>sol-std (standard)</td></tr><tr><td>NL-0097</td><td>CONTRACT ITEMS AND PRICING</td><td>{ {SecNo}</td><td>awd-std (standard)</td></tr><tr><td>NL-0004</td><td>DESCRIPTION OF ITEMS</td><td>{{SecNo}</td><td>req-micro (micro)</td></tr><tr><td>NL-0006</td><td>PROCUREMENT METHOD</td><td>{{SecNo}</td><td>req-micro (micro)</td></tr><tr><td>NL-0007</td><td>APPROVALS</td><td>{{SecNo}</td><td>req-micro (micro)</td></tr><tr><td>NL-0015</td><td>RFQ INFORMATION</td><td>{{SecNo}</td><td>sol-micro (micro)</td></tr><tr><td>NL-0017</td><td>DELIVERY REQUIREMENTS</td><td>{{SecNo}</td><td>sol-micro (micro)</td></tr><tr><td>NL-0027</td><td>ITEMS ORDERED</td><td>{{SecNo}</td><td>awd-micro (micro)</td></tr><tr><td>NL-0028</td><td>DELIVERY</td><td>{{SecNo}</td><td>awd-micro (micro)</td></tr><tr><td>NL-0029</td><td>PAYMENT</td><td>{{SecNo}</td><td>awd-micro (micro)</td></tr><tr><td>NL-0122</td><td>DESCRIPTION OF REQUIRED ITEMS</td><td>{{SecNo}</td><td>req-cplx (complex)</td></tr><tr><td>NL-0141</td><td>BACKGROUND</td><td>{{SecNo}</td><td>sol-cplx (complex)</td></tr><tr><td>NL-0145</td><td>CONTRACT TYPE</td><td>{{SecNo}</td><td>sol-cplx (complex)</td></tr><tr><td>NL-0150</td><td>ATTACHMENTS</td><td>{{SecNo}</td><td>sol-cplx (complex)</td></tr><tr><td>NL-0165</td><td>CONTRACT ADMINISTRATION</td><td>{{SecNo}</td><td>awd-cplx (complex)</td></tr><tr><td>NL-0169</td><td>SIGNATURES</td><td>{{SecNo}</td><td>awd-cplx (complex)</td></tr><tr><td>NL-0172</td><td>CONTRACT LINE ITEMS (CLINs)</td><td>{{SecNo}</td><td>awd-cplx (complex)</td></tr><tr><td>NL-0177</td><td>PERFORMANCE STANDARDS</td><td>{{SecNo}</td><td>awd-cplx (complex)</td></tr><tr><td>NL-0039</td><td>TECHNICAL SPECIFICATIONS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0040</td><td>DELIVERY, MILESTONES, AND TIMELINES</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0041</td><td>REQUISITION OVERVIEW</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0042</td><td>VENDOR QUALIFICATIONS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0043</td><td>CONTRACTUAL TERMS AND CONDITIONS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0044</td><td>ATTACHMENTS AND SUPPORTING DOCUMENTS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0045</td><td>APPROVALS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0046</td><td>REQUISITION OVERVIEW</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0047</td><td>BUDGET AND FUNDING</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0048</td><td>PROCUREMENT METHOD AND JUSTIFICATION</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0049</td><td>RISK ASSESSMENT</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0050</td><td>COMPLIANCE AND REGULATORY REQUIREMENTS</td><td>{SECNO}</td><td>req-std (standard)</td></tr><tr><td>NL-0051</td><td>EVALUATION CRITERIA</td><td>{SECNO}</td><td>req-std (standard)</td></tr></tbody></table>
+<h2>Line Item Tag Variants <span class="badge-warn">REVIEW</span></h2>
+<div class="section-note">
+  Two spellings appear: <code>{lineitem}</code> (singular) and
+  <code>{lineitems}</code> (plural). If FillinService treats them identically,
+  one spelling should be chosen and enforced across all tiers. If they render
+  differently (e.g., single row vs. full table), the distinction should be
+  documented and verified for each document type.
+</div>
+<table id="tbl-lineitem"><thead><tr><th>Tag</th><th>DocTypes</th><th>NodeCount</th></tr></thead><tbody><tr><td>{lineitems}</td><td>req-cplx (complex)</td><td>1</td></tr><tr><td>{lineitems}</td><td>sol-cplx (complex)</td><td>1</td></tr></tbody></table>
+<h2>Methodology</h2>
+<p>This report was produced by <code>fillin_audit.R</code> using the following steps:</p>
+<ol>
+  <li>Connected to the SQLite database with <strong>RSQLite</strong>.</li>
+  <li>Retrieved all Node rows whose <code>Content</code> column is non-null
+      (stored as a DOCX binary blob).</li>
+  <li>Wrapped each blob in <code>rawConnection()</code> and passed it to
+      <strong>officer</strong><code>::read_docx()</code> to extract paragraph text.</li>
+  <li>Applied the regular expression <code>\{[^}]+\}</code> with
+      <code>gregexpr()</code> / <code>regmatches()</code> to find every
+      <code>{...}</code> occurrence in each node.</li>
+  <li>Classified each tag against the canonical set and grouped anomalies by type.</li>
+  <li>Joined to <code>NodeHierarchy</code> and <code>DocType</code> to show
+      which document types each affected node belongs to.</li>
+</ol>
+
+</body>
+</html>

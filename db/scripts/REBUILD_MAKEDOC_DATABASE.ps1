@@ -2,14 +2,23 @@ $ErrorActionPreference = 'Stop'
 
 #---------------------------------------------------------------------------------
 $cfg = Get-Content "C:\Users\skeye\BOOK2\MAKEDOC\config\makedoc.config.json" | ConvertFrom-Json
+$ClausePath = $cfg.ClausesRoot -replace '/', '\'
 $DbPath = $cfg.DatabasePath -replace '/', '\'
 $SeedPath = $cfg.SeedPath -replace '/', '\'
 $PS1Path = $cfg.PS1Path  -replace '/', '\'
 $SqlPath = $cfg.SQLPath -replace '/', '\'
 
-Write-Output "Dbpath = " $Dbpath
+Write-Output "Dbpath = " $DbPath
 Write-Output "SeedPath = " $SeedPath
 Write-Output "PS1Path = " $PS1Path
+Write-Output "ClausePath = " $ClausePath
+
+#exit
+
+
+#---------------------------------------------------------------------------------
+Write-Host "Fix DOCX splits for plain-text fill ins: {lineitem} and {SecNo}"
+python fix_word_tags.py --dir "$ClausePath" --recursive
 
 #---------------------------------------------------------------------------------
 Write-Host "Starting Excel → CSV conversions..."
@@ -38,7 +47,7 @@ function Convert-XlsxToCsv {
 Convert-XlsxToCsv "$SeedPath/seed_DocType_table.xlsx"        "$SeedPath/seed_DocType_table.csv"
 Convert-XlsxToCsv "$SeedPath/seed_NodeHierarchy_table.xlsx"  "$SeedPath/seed_NodeHierarchy_table.csv"
 Convert-XlsxToCsv "$SeedPath/seed_Node_table.xlsx"           "$SeedPath/seed_Node_table.csv"
-Convert-XlsxToCsv "$SeedPath/seed_Instance_table.xlsx"       "$SeedPath/seed_Instance_table.csv"
+# Convert-XlsxToCsv "$SeedPath/seed_Instance_table.xlsx"       "$SeedPath/seed_Instance_table.csv"
 
 # Close Excel
 $excel.Quit()
@@ -59,7 +68,14 @@ Resolve-Path "$SeedPath\seed_Node_table.csv"
 Write-Host "Running SQLite rebuild script..."
 Push-Location $SqlPath
 try {
-    sqlite3.exe $DbPath ".read rebuild_MAKEDOC_database.sql"
+    sqlite3.exe $DbPath `
+    ".read drop_MAKEDOC_tables.sql" `
+    ".read create_MAKEDOC_tables.sql" `
+	".read fts_migrate.sql" `
+    ".read load_DocType_table.sql" `
+    ".read load_NodeHierarchy_table.sql" `
+    ".read load_Node_table.sql"
+
     if ($LASTEXITCODE -ne 0) { throw "SQLite rebuild failed with exit code $LASTEXITCODE" }
 } finally {
     Pop-Location
@@ -88,12 +104,12 @@ if ($LASTEXITCODE -ne 0) { throw "CheckNodes found nodes with empty content, exi
 
 Write-Host "CheckNodes.R complete."
 #---------------------------------------------------------------------------------
-Write-Host "Load the Template nodes into the Node table..."
-Rscript.exe $PS1Path/AddTemplateNode.R > $PS1Path/output.addTemplateNode.txt
-if ($LASTEXITCODE -ne 0) { throw "SQLite rebuild failed with exit code $LASTEXITCODE" }
+# Write-Host "Load the Template nodes into the Node table..."
+# Rscript.exe $PS1Path/AddTemplateNode.R > $PS1Path/output.addTemplateNode.txt
+#if ($LASTEXITCODE -ne 0) { throw "SQLite rebuild failed with exit code $LASTEXITCODE" }
 
 
-Write-Host "AddTemplateNode.R complete."
+# Write-Host "AddTemplateNode.R complete."
 #---------------------------------------------------------------------------------
 Write-Host "Running NodeHierarchy traversal..."
 
@@ -103,8 +119,14 @@ if ($LASTEXITCODE -ne 0) { throw "SQLite rebuild failed with exit code $LASTEXIT
 
 Write-Host "TraverseNodeHierarchy.R complete."
 #---------------------------------------------------------------------------------
-
 Write-Host "Find fillins in clauses..."
 ./find_fillins.ps1
 
+#---------------------------------------------------------------------------------
+Write-Host "Backfill clause text into Node.PlainText"
+
+python fts_backfill.py --db "$DbPath"
+if ($LASTEXITCODE -ne 0) { throw "fts_backfill.py failed with exit code $LASTEXITCODE" }
+
+#---------------------------------------------------------------------------------
 Write-Host "Database rebuild pipeline finished successfully."

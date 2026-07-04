@@ -1,0 +1,43 @@
+STATE OF NORTHLANDIA
+Solicitation for Commercial Items (Standard Tier)
+Solicitation No.
+Issue Date:
+Response Due:
+Requesting Agency: General Services
+Purpose:
+SECTION 1 — INTRODUCTION
+The Authority is seeking quotations from qualified suppliers for the provision of This solicitation is issued under the Authority’s standard‑tier procurement procedures, which apply to mid‑value, low‑complexity commercial purchases.
+Suppliers shall submit a single quotation containing pricing, delivery information, and confirmation of compliance with the requirements set out below
+SECTION 2 — DESCRIPTION OF GOODS
+The Authority requires the following:
+Additional information:
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Motor oil	44333	100	BOX	$200.00	$20,000.00
+2	Gasoline	22344	1000	GAL	$5.00	$5,000.00
+Grand Total: $25,000.00
+SECTION 3— PRICING
+Suppliers shall provide firm, fixed pricing for all items. Pricing must include:
+Unit price
+Extended price
+Any applicable taxes or fees
+Delivery costs
+Partial quotations are not accepted.
+SECTION 4— EVALUATION CRITERIA
+Award will be made to the supplier offering the best value, considering:
+Total evaluated price
+Ability to meet delivery timeframe
+Compliance with specifications
+Past performance or demonstrated reliability (if available)
+This is a best-value, price-driven evaluation, not a complex technical evaluation.
+SECTION 5 — TERMS & CONDITIONS (STANDARD TIER)
+The Supplier shall perform in accordance with standard commercial practices and the requirements of this solicitation.
+Items are subject to inspection and acceptance by the Authority.
+Payment will be made within 30 days of receipt of a valid invoice.
+No IP is expected to be created under this procurement.
+The Supplier shall protect any non-public information received from the Authority.
+The Authority may terminate the solicitation or any resulting contract for convenience with written notice.
+SECTION 6 — SUBMISSION INSTRUCTIONS
+Suppliers shall submit quotations electronically to:
+Email: 
+Subject Line:
+Quotations must be received by the due date and time listed above.

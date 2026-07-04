@@ -199,3 +199,4 @@ C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\obj\Debug\net8.0\win-x64\
 C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\obj\Debug\net8.0\win-x64\FindSDTTagsApp.pdb
 C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\obj\Debug\net8.0\win-x64\FindSDTTagsApp.genruntimeconfig.cache
 C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\obj\Debug\net8.0\win-x64\ref\FindSDTTagsApp.dll
+C:\Users\skeye\BOOK2\MAKEDOC\db\scripts\FindSDTTagsApp\obj\Debug\net8.0\win-x64\FindSDTTagsApp.sourcelink.json

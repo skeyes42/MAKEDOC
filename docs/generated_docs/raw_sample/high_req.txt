@@ -1,0 +1,72 @@
+STATE OF NORTHLANDIA
+Internal Requisition From
+Requisition No.
+Requesting Agency: General Services
+Purpose:
+SECTION 1— REQUESTING AGENCY INFORMATION
+Agency: General Services
+Division: Central Procurement Office
+Address: 123 Capitol Avenue, Northlandia City, NL 00001
+Agency Contact:
+Phone:
+Email:
+SECTION 2— REQUISITION PURPOSE
+The requesting agency seeks approval to initiate a competitive procurement
+for the statewide supply of
+The resulting contract will support the operational needs of state agencies,
+fleet maintenance facilities, and public schools.
+SECTION 3 — JUSTIFICATION / NEED STATEMENT
+Northlandia agencies collectively require
+Current decentralized purchasing
+results in inconsistent pricing and administrative inefficiencies. A
+statewide fixed-price, indefinite-delivery contract will reduce costs,
+standardize product quality, and streamline ordering.
+SECTION 4 — DESCRIPTION OF REQUIRED ITEMS
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Paper reams	99998	1000	REAM	$10.00	$10,000.00
+2	Cardboard boxes	11111	1000	BUNDLE	$35.00	$35,000.00
+Grand Total: $45,000.00
+SECTION 5 — ESTIMATED QUANTITIES
+Note: Quantities are estimates only and do not represent guaranteed orders.
+SECTION 6— FUNDING INFORMATION
+Funding Source: General Operating Funds
+Budget Fiscal Year: 2026
+Estimated Annual Spend: $
+Chart of Accounts / Cost Center:
+Approval of funding is required prior to solicitation issuance.
+SECTION 7— PROCUREMENT METHOD REQUESTED
+Requested Method: Competitive Sealed Proposals
+Authority: Northlandia Procurement Code § 18-402
+Rationale: Multiple product types, technical specifications, and delivery
+requirements necessitate evaluation beyond price alone.
+SECTION 8 — DELIVERY REQUIREMENTS
+• Standard delivery within 10 business days of order
+• Emergency delivery within 48 hours
+• Delivery to all State agency locations listed in Attachment A
+• FOB Destination, freight included in unit price
+SECTION 9 — SPECIAL REQUIREMENTS
+• Contractor must maintain an online ordering portal
+• Contractor must demonstrate statewide delivery capability
+• Contractor must provide three references for similar contracts
+SECTION 10— ATTACHMENTS
+The following documents are included with this requisition:
+• Attachment A: Estimated Delivery Locations
+• Attachment B: Technical Specifications
+• Attachment C: Historical Spend Data (Past 3 Years)
+• Attachment D: Environmental Compliance Requirements
+SECTION 11— APPROVALS
+Requesting Official:
+Name:
+Title:
+Signature:
+Date:
+Budget Approval:
+Name:
+Title:
+Signature:
+Date:
+Procurement Approval:
+Name:
+Title:
+Signature:
+Date:

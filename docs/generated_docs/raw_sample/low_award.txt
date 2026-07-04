@@ -1,0 +1,32 @@
+State of Northlandia
+General Services
+  Solicitation No. 
+  Title:
+SECTION 1 — PURCHASE ORDER AND SOLICITATION INFORMATION
+Purchase Order No.:
+Vendor:
+Address:
+Date Issued:
+RFQ No.:
+Issue Date:
+Response Due:
+SECTION {2 — ITEMS ORDERED
+Line #	Description	NAICS	Qty	Unit	Unit Price	Extended
+1	Pencils	44567	100	BOX	$20.00	$2,000.00
+2	Batteries	55045	100	EA	$225.00	$22,500.00
+Grand Total: $24,500.00
+SECTION {3 — DELIVERY
+Deliver to:
+General Services
+45 Commerce Road
+Northlandia City, NL 00001
+Required delivery: Within 5 business days.
+SECTION {4 — PAYMENT
+Payment Terms: Net 30 days
+Invoice must reference PO number.
+SECTION 5 — ACCEPTANCE
+The State will inspect all items upon delivery. Defective or non-conforming
+items will be returned at the vendor’s expense.
+SECTION 6 — SIGNATURES
+Authorized State Official: ______________________  Date: _________
+Vendor Representative: __________________________  Date: _________
